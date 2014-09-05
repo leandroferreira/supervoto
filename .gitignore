@@ -1,0 +1,12 @@
+# system files
+*~
+Thumbs.db
+.DS_Store
+.Spotlight-V100
+.Trashes
+.svn
+*.sublime-workspace
+*.sublime-project
+
+# project-specific
+_insumos
