@@ -5,8 +5,11 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 .svn
+*.swp
 *.sublime-workspace
 *.sublime-project
 
 # project-specific
 _insumos
+.sass-cache
+bower_components

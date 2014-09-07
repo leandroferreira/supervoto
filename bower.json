@@ -1,0 +1,21 @@
+{
+  "name": "supervoto",
+  "version": "0.1",
+  "homepage": "https://github.com/leandroferreira/supervoto",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "isotope": "~2.0.1"
+  }
+}
