@@ -1,0 +1,18 @@
+@mixin breakpoint($point)
+  @if $point == large
+    @media (min-width: $large)
+      @content
+  @else if $point == medium
+    @media (min-width: $medium)
+      @content
+  @else if $point == small
+    @media (min-width: $small)
+      @content
+
+@mixin block-elm($color)
+  background-color: $color
+  border-bottom: 2px solid shade($color, 25)
+  border-right: 3px solid shade($color, 10)
+
+@mixin clear-block-elm
+  border: 0

@@ -1,0 +1,206 @@
+@font-face {
+  font-family: "arcade-interlaced";
+  src: url('../fonts/arcade-interlaced/arcade-interlaced.ttf?1044365580') format('truetype'), url('../fonts/arcade-interlaced/arcade-interlaced.ttf.eot?1330064650') format('embedded-opentype'), url('../fonts/arcade-interlaced/arcade-interlaced.ttf.svg?1330064650') format('svg'), url('../fonts/arcade-interlaced/arcade-interlaced.ttf.woff?1330064650') format('woff');
+}
+@font-face {
+  font-family: "arcade-rounded";
+  src: url('../fonts/arcade-rounded/arcade-rounded.ttf?1044365580') format('truetype'), url('../fonts/arcade-rounded/arcade-rounded.ttf.eot?1330064648') format('embedded-opentype'), url('../fonts/arcade-rounded/arcade-rounded.ttf.svg?1330064648') format('svg'), url('../fonts/arcade-rounded/arcade-rounded.ttf.woff?1330064648') format('woff');
+}
+@font-face {
+  font-family: "arista-20";
+  src: url('../fonts/arista-20/arista-20.ttf?1232139388') format('truetype'), url('../fonts/arista-20/arista-20.ttf.eot?1330056398') format('embedded-opentype'), url('../fonts/arista-20/arista-20.ttf.svg?1330056398') format('svg'), url('../fonts/arista-20/arista-20.ttf.woff?1330056398') format('woff');
+}
+@font-face {
+  font-family: "arista-20-light";
+  src: url('../fonts/arista-20-light/arista-20-light.ttf?1232139388') format('truetype'), url('../fonts/arista-20-light/arista-20-light.ttf.eot?1330056402') format('embedded-opentype'), url('../fonts/arista-20-light/arista-20-light.ttf.svg?1330056402') format('svg'), url('../fonts/arista-20-light/arista-20-light.ttf.woff?1330056402') format('woff');
+}
+/* line 56, social/*.png */
+.social-sprite, .social-facebook, .social-twitter {
+  background-image: url('../img/social-s8cc9892ec5.png');
+  background-repeat: no-repeat;
+}
+
+/* line 84, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
+.social-facebook {
+  background-position: 0 0;
+}
+
+/* line 84, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/utilities/sprites/_base.scss */
+.social-twitter {
+  background-position: 0 -38px;
+}
+
+/* line 23, ../sass/_base.sass */
+html {
+  font-size: 62.5%;
+}
+
+/* line 26, ../sass/_base.sass */
+body {
+  color: #707373;
+  font-family: "arista-20";
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* line 32, ../sass/_base.sass */
+a {
+  color: inherit;
+}
+
+/* line 38, ../sass/_base.sass */
+#head {
+  border-top: 2px solid #c6b99d;
+  -moz-box-shadow: #f8e8c5 0 -4px 0;
+  -webkit-box-shadow: #f8e8c5 0 -4px 0;
+  box-shadow: #f8e8c5 0 -4px 0;
+  margin-top: 4px;
+  padding-bottom: 40px;
+  background: #ffffff url(../img/rainbow-bar.png) left bottom repeat-x;
+}
+/* line 45, ../sass/_base.sass */
+#head.hover {
+  border-top: 2px solid #ccc200;
+  -moz-box-shadow: #fff300 0 -4px 0;
+  -webkit-box-shadow: #fff300 0 -4px 0;
+  box-shadow: #fff300 0 -4px 0;
+}
+/* line 49, ../sass/_base.sass */
+#head h1 {
+  margin: 0 auto;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  background-image: url('../img/logo.png?1409951791');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 373px;
+  height: 255px;
+}
+/* line 53, ../sass/_base.sass */
+#head nav ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 62, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#head nav ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 49, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#head nav ul li:first-child {
+  padding-left: 0;
+}
+/* line 50, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#head nav ul li:last-child {
+  padding-right: 0;
+}
+/* line 52, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/compass-core-1.0.1/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#head nav ul li.last {
+  padding-right: 0;
+}
+/* line 56, ../sass/_base.sass */
+#head nav ul a {
+  text-decoration: none;
+  display: block;
+}
+/* line 60, ../sass/_base.sass */
+#head .top-menu {
+  position: absolute;
+  left: 30px;
+  top: 4px;
+}
+/* line 65, ../sass/_base.sass */
+#head .top-menu a {
+  font-size: 13px;
+  font-size: 1.3rem;
+  text-shadow: #fdfaf3 1px 0 0;
+  font-family: "arcade-rounded";
+  text-transform: uppercase;
+  background-color: #f8e8c5;
+  border-bottom: 2px solid #baae93;
+  border-right: 3px solid #dfd0b1;
+  padding: 10px;
+}
+/* line 73, ../sass/_base.sass */
+#head .top-menu a:hover {
+  text-shadow: #fff533 1px 0 0;
+  background-color: #fff300;
+  border-bottom: 2px solid #bfb600;
+  border-right: 3px solid #e5da00;
+}
+/* line 77, ../sass/_base.sass */
+#head .social {
+  position: absolute;
+  right: 30px;
+  top: 4px;
+}
+/* line 82, ../sass/_base.sass */
+#head .social a {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  display: block;
+  width: 48px;
+  height: 38px;
+}
+/* line 88, ../sass/_base.sass */
+#head .social a:hover {
+  margin-top: 10px;
+}
+/* line 91, ../sass/_base.sass */
+#head .social a:active {
+  border: 0;
+  margin-left: 3px;
+  margin-top: 12px;
+}
+/* line 96, ../sass/_base.sass */
+#head .social .social-twitter {
+  background-color: #00baff;
+  border-bottom: 2px solid #008bbf;
+  border-right: 3px solid #00a7e5;
+}
+/* line 99, ../sass/_base.sass */
+#head .social .social-facebook {
+  background-color: #005ea7;
+  border-bottom: 2px solid #00467d;
+  border-right: 3px solid #005496;
+}
+
+/* line 105, ../sass/_base.sass */
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+.container:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+@media (min-width: 1024px) {
+  /* line 105, ../sass/_base.sass */
+  .container {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../.rvm/gems/ruby-1.9.3-p194@supervoto/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}

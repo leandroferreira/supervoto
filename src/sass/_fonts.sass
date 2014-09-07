@@ -1,0 +1,26 @@
+@import "compass/css3"
+
+$arcade-inter: "arcade-interlaced"
+$arcade-rounded: "arcade-rounded"
+$arista: "arista-20"
+$arista-light: "arista-20-light"
+
+@mixin fontface($name)
+  @include font-face($name, font-files(""+$name+"/"+$name+".ttf", ""+$name+"/"+$name+".ttf.eot", ""+$name+"/"+$name+".ttf.svg", ""+$name+"/"+$name+".ttf.woff"))
+
+@include fontface($arcade-inter)
+@include fontface($arcade-rounded)
+@include fontface($arista)
+@include fontface($arista-light)
+
+@mixin font-size ($sizeValue)
+  font-size: $sizeValue + px
+  font-size: ($sizeValue / 10) + rem
+
+@mixin line-height ($sizeValue)
+  line-height: $sizeValue + px
+  line-height: ($sizeValue / 10) + rem
+
+@mixin letter-spacing ($sizeValue)
+  letter-spacing: ($sizeValue/1000) + px
+  letter-spacing: ($sizeValue/10000) + rem
