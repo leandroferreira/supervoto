@@ -12,17 +12,6 @@
         <link rel="canonical" href="" />
         <link rel="shortcut icon" href="img/favicon.ico">
         <link rel="apple-touch-icon" href="img/favicon.png">
-        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script>
-            // TODO: mover pra arquivo externo
-            $(function () {
-                $('.top-menu a').mouseover(function () {
-                    $('#head').addClass('hover')
-                }).mouseout(function () {
-                    $('#head').removeClass('hover')
-                });
-            })
-        </script>
     </head>
     <body>
         <header id="head">
@@ -61,5 +50,6 @@
                 <div class="content"></div>
             </section>
         </div>
+        <script data-main="js/app" src="js/lib/requirejs/require.js"></script>
     </body>
 </html>
