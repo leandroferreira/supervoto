@@ -7,6 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="description" content="Escolher bem o seu candidato pode fazer uma grande diferença para o Brasil. Acesse o Super Voto e faça uma comparação entre os candidatos de acordo com seus históricos políticos e suas áreas de atuação. Ficou fácil e divertido decidir quem receberá seu voto de confiança.">
 
         <link rel="stylesheet" href="css/style.css">
         <link rel="canonical" href="" />
@@ -32,22 +33,135 @@
             <section id="home">
                 <header>
                     <nav class="filter-menu">
-                        <span class="">Filtrar por:</span>
-                        <ul>
-                            <li><a href="#">Cargo</a></li>
-                            <li><a href="#">Estado</a></li>
-                            <li><a href="#">Badges</a></li>
-                            <li><a href="#">Partido</a></li>
+                        <h2>Filtrar por:</h2>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">Cargo</a>
+                                <ul class="submenu">
+                                    <li><a href="#" data-filter="senador">Senador</a></li>
+                                    <li><a href="#" data-filter="deputado">Deputado</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Estado</a>
+                                <ul class="submenu">
+                                    <li><a href="#" data-filter="AC">AC</a></li>
+                                    <li><a href="#" data-filter="AL">AL</a></li>
+                                    <li><a href="#" data-filter="AM">AM</a></li>
+                                    <li><a href="#" data-filter="AP">AP</a></li>
+                                    <li><a href="#" data-filter="BA">BA</a></li>
+                                    <li><a href="#" data-filter="CE">CE</a></li>
+                                    <li><a href="#" data-filter="DF">DF</a></li>
+                                    <li><a href="#" data-filter="ES">ES</a></li>
+                                    <li><a href="#" data-filter="GO">GO</a></li>
+                                    <li><a href="#" data-filter="MA">MA</a></li>
+                                    <li><a href="#" data-filter="MG">MG</a></li>
+                                    <li><a href="#" data-filter="MS">MS</a></li>
+                                    <li><a href="#" data-filter="MT">MT</a></li>
+                                    <li><a href="#" data-filter="PA">PA</a></li>
+                                    <li><a href="#" data-filter="PB">PB</a></li>
+                                    <li><a href="#" data-filter="PE">PE</a></li>
+                                    <li><a href="#" data-filter="PI">PI</a></li>
+                                    <li><a href="#" data-filter="PR">PR</a></li>
+                                    <li><a href="#" data-filter="RJ">RJ</a></li>
+                                    <li><a href="#" data-filter="RN">RN</a></li>
+                                    <li><a href="#" data-filter="RO">RO</a></li>
+                                    <li><a href="#" data-filter="RR">RR</a></li>
+                                    <li><a href="#" data-filter="RS">RS</a></li>
+                                    <li><a href="#" data-filter="SC">SC</a></li>
+                                    <li><a href="#" data-filter="SE">SE</a></li>
+                                    <li><a href="#" data-filter="SP">SP</a></li>
+                                    <li><a href="#" data-filter="TO">TO</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Badges</a>
+                                <ul class="submenu">
+                                    <li><a href="#">lorem</a></li>
+                                    <li><a href="#">ipsum</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Partido</a>
+                                <ul class="submenu">
+                                    <li><a data-filter="PT" href="#">PT</a></li>
+                                    <li><a data-filter="PMDB" href="#">PMDB</a></li>
+                                    <li><a data-filter="PP" href="#">PP</a></li>
+                                    <li><a data-filter="PROS" href="#">PROS</a></li>
+                                    <li><a data-filter="PSDB" href="#">PSDB</a></li>
+                                    <li><a data-filter="PSB" href="#">PSB</a></li>
+                                    <li><a data-filter="PR" href="#">PR</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                     <nav class="order-menu">
-                        <span class="">Ordenar por:</span>
-                        <ul>
+                        <h2>Ordenar por:</h2>
+                        <ul class="menu">
                             <li><a href="#">Força</a></li>
+                            <ul class="submenu">
+                                <li><a href="#" data-filter="atuacao">atuação</a></li>
+                                <li><a href="#" data-filter="forca">força</a></li>
+                                <li><a href="#" data-filter="processos">processos</a></li>
+                            </ul>
                         </ul>
                     </nav>
                 </header>
-                <div class="content"></div>
+                <div class="content">
+                    <ul>
+                        <li class="card">
+                            <div class="front">
+                                <header>
+                                    <h3>E. suplicy</h3><span class="partido">PT</span>
+                                    <h4>senador / SP</h4>
+                                </header>
+                                <ul class="badges"></ul>
+                            </div>
+                            <!--<div class="back">
+                                <header>
+                                    <h3>E. suplicy</h3><span class="partido">pt</span>
+                                </header>
+                                <ul class="badges"></ul>
+                                <ul class="features">
+                                    <li>
+                                        <h4>atuação</h4>
+                                        <span class="bar"></span><span class="value">100</span>
+                                    </li>
+                                    <li>
+                                        <h4>processos</h4>
+                                        <span class="bar"></span><span class="value">100</span>
+                                    </li>
+                                    <li>
+                                        <h4>privilégios</h4>
+                                        <span class="bar"></span><span class="value">100</span>
+                                    </li>
+                                    <li>
+                                        <h4>assiduidade</h4>
+                                        <span class="bar"></span><span class="value">100</span>
+                                    </li>
+                                </ul>
+                            </div>-->
+                        </li>
+                        <li class="card">
+                            <div class="front">
+                                <header>
+                                    <h3>Romário</h3><span class="partido">PSB</span>
+                                    <h4>deputado federal / RJ</h4>
+                                </header>
+                                <ul class="badges"></ul>
+                            </div>
+                        </li>
+                        <li class="card">
+                            <div class="front">
+                                <header>
+                                    <h3>cristovam b.</h3><span class="partido">PDT</span>
+                                    <h4>senador / DF</h4>
+                                </header>
+                                <ul class="badges"></ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </section>
         </div>
         <script data-main="js/app" src="js/lib/requirejs/require.js"></script>

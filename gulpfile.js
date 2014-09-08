@@ -28,30 +28,33 @@ gulp.task('bower-install', function(cb) {
 });
 
 // copy bower scripts to build folder
-gulp.task('bower-copy', function () {
+gulp.task('bower-copy', ['clean'], function () {
     bowerSrc()
       .pipe(gulp.dest('build/js/lib'));
 });
 
 // copy scripts to build folder
-gulp.task('scripts', function() {
+gulp.task('scripts', ['clean'], function() {
   return gulp.src(paths.scripts)
     //.pipe(uglify())
     .pipe(gulp.dest('build/js'));
 });
 
 // copy images to build folder
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
   return gulp.src(paths.images)
     .pipe(imagemin({optimizationLevel: 5}))
     .pipe(gulp.dest('build/img'));
 });
 
-// copy misc static files to build folder
-gulp.task('statics', function(cb) {
-  gulp.src('src/*.html').pipe(gulp.dest('build'));
-  gulp.src('src/fonts/**/*').pipe(gulp.dest('build/fonts'));
-  cb();
+// copy html build to folder
+gulp.task('html', ['clean'], function(cb) {
+  return gulp.src('src/*.html').pipe(gulp.dest('build'));
+});
+
+// copy fonts to build folder
+gulp.task('fonts', ['clean'], function(cb) {
+  return gulp.src('src/fonts/**/*').pipe(gulp.dest('build/fonts'));
 });
 
 // compile compass
@@ -69,7 +72,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['scripts']);
   gulp.watch(paths.images, ['images']);
   gulp.watch(paths.sass, ['compass']);
-  gulp.watch('src/*.html', ['statics']);
+  gulp.watch('src/*.html', ['html']);
 });
 
 /////////////////
@@ -80,7 +83,7 @@ gulp.task('watch', function() {
 gulp.task('install', ['bower-install']);
 
 // do a single build
-gulp.task('build', ['clean', 'compass', 'images', 'statics', 'scripts', 'bower-copy']);
+gulp.task('build', ['compass', 'images', 'html', 'fonts', 'scripts', 'bower-copy']);
 
 // defaults to dev mode
 gulp.task('default', ['build', 'watch']);
