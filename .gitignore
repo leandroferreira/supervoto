@@ -13,3 +13,4 @@ Thumbs.db
 _insumos
 .sass-cache
 bower_components
+node_modules
