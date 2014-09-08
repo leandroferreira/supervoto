@@ -1,0 +1,71 @@
+// Head
+// =========
+#head
+  @include transition-property(background-color,border,box-shadow)
+  @include transition-duration($default-timer)
+  border-top: 2px solid shade($cream, 20)
+  @include box-shadow($cream 0 -4px 0)
+  margin-top: 4px
+  padding-bottom: 40px
+  background: #ffffff url(../img/rainbow-bar.png) left bottom repeat-x
+
+  &.hover
+    border-top: 2px solid shade($yellow, 20)
+    @include box-shadow($yellow 0 -4px 0)
+
+  h1
+    margin: 0 auto
+    @include replace-text-with-dimensions('logo.png')
+
+  nav ul
+    @include horizontal-list
+
+    a
+      text-decoration: none
+      display: block
+
+  .top-menu
+    position: absolute
+    left: 30px
+    top: 4px
+
+    a
+      @include transition-property(background-color,border)
+      @include transition-duration($default-timer)
+      @include font-size(13)
+      @include text-shadow(adjust-lightness($cream, 10) 1px 0 0)
+      font-family: $arcade-rounded
+      text-transform: uppercase
+      @include block-elm($cream)
+      padding: 10px
+
+      &:hover
+        @include text-shadow(adjust-lightness($yellow, 10) 1px 0 0)
+        @include block-elm($yellow)
+
+  .social
+    position: absolute
+    right: 30px
+    top: 4px
+
+    a
+      @include transition-property(margin-top)
+      @include transition-duration($default-timer)
+      @include hide-text
+      display: block
+      width: 48px
+      height: 38px
+
+      &:hover
+        margin-top: 10px
+
+      &:active
+        @include clear-block-elm
+        margin-left: 3px
+        margin-top: 12px
+
+    .social-twitter
+      @include block-elm(#00baff)
+
+    .social-facebook
+      @include block-elm(#005ea7)
