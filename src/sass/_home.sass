@@ -101,20 +101,54 @@
 #home > .content
   z-index: 10
   position: relative
+  @include perspective(1000)
 
   .card
     display: block
     width: 206px
-    height: 215px
+    height: 265px
     margin-bottom: 85px
+    @include transform-style(preserve-3d)
+    @include transition-property(transform)
+    @include transition-duration(400ms)
+    @include apply-origin(right center, true)
+
+    &.flipped
+      @include transform(translateX(-100%) rotateY(-180deg))
 
     .back, .front
       background-color: $cream
       border-right: 1px solid shade($cream, 10)
       border-bottom: 2px solid shade($cream, 20)
+      @include backface-visibility(hidden)
+      position: absolute
+      top: 0
+      width: 206px
+      height: 265px
+
+    .front
+      z-index: 2
+      @include rotateY(0deg)
 
     .back
-      display: none
+      @include rotateY(180deg)
+
+      header
+        padding-top: 12px
+
+      h3
+        @include font-size(20)
+        margin-top: 0
+        margin-bottom: 5px
+
+      .partido
+        font-family: $arista-light
+        float: right
+        @include font-size(20)
+        margin: 0
+
+    .features
+      padding: 15px
 
     .thumb
       position: relative

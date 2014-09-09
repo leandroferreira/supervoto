@@ -12,6 +12,11 @@ define(['jquery', 'isotope'], function ($, Isotope) {
         }
       });
 
+      $('.card').on('mousedown', function () {
+        console.log(this)
+        $(this).toggleClass('flipped');
+      });
+
       return this;
     }
   };
