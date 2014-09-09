@@ -34,28 +34,38 @@ gulp.task('bower-copy', ['clean'], function () {
 });
 
 // copy scripts to build folder
-gulp.task('scripts', ['clean'], function() {
+var scripts = function() {
   return gulp.src(paths.scripts)
     //.pipe(uglify())
     .pipe(gulp.dest('build/js'));
-});
+};
+gulp.task('scripts', ['clean'], scripts);
+gulp.task('scripts-watch', scripts);
 
 // copy images to build folder
-gulp.task('images', ['clean'], function() {
+var images = function() {
   return gulp.src(paths.images)
     .pipe(imagemin({optimizationLevel: 5}))
     .pipe(gulp.dest('build/img'));
-});
+};
+gulp.task('images', ['clean'], images);
+gulp.task('images-watch', images);
 
 // copy html build to folder
-gulp.task('html', ['clean'], function(cb) {
-  return gulp.src('src/*.html').pipe(gulp.dest('build'));
-});
+var html = function() {
+  return gulp.src('src/*.html')
+    .pipe(gulp.dest('build'));
+}
+gulp.task('html', ['clean'], html);
+gulp.task('html-watch', html);
 
 // copy fonts to build folder
-gulp.task('fonts', ['clean'], function(cb) {
-  return gulp.src('src/fonts/**/*').pipe(gulp.dest('build/fonts'));
-});
+var fonts = function() {
+  return gulp.src('src/fonts/**/*')
+    .pipe(gulp.dest('build/fonts'));
+}
+gulp.task('fonts', ['clean'], fonts);
+gulp.task('fonts-watch', fonts);
 
 // compile compass
 gulp.task('compass', function() {
@@ -69,10 +79,10 @@ gulp.task('compass', function() {
 
 // watch for changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['scripts']);
-  gulp.watch(paths.images, ['images']);
+  gulp.watch('src/*.html', ['html-watch']);
+  gulp.watch(paths.scripts, ['scripts-watch']);
+  gulp.watch(paths.images, ['images-watch']);
   gulp.watch(paths.sass, ['compass']);
-  gulp.watch('src/*.html', ['html']);
 });
 
 /////////////////
@@ -83,7 +93,7 @@ gulp.task('watch', function() {
 gulp.task('install', ['bower-install']);
 
 // do a single build
-gulp.task('build', ['compass', 'images', 'html', 'fonts', 'scripts', 'bower-copy']);
+gulp.task('build', ['html', 'fonts', 'compass', 'images', 'scripts', 'bower-copy']);
 
 // defaults to dev mode
 gulp.task('default', ['build', 'watch']);

@@ -1,95 +1,175 @@
 #home
-  > header
-    text-transform: uppercase
+  text-transform: uppercase
 
-    a
-      text-decoration: none
+#home > header
+  z-index: 50
+  height: 100px
+  position: relative
 
-    ul
-      margin: 0
-      padding: 0
+  a
+    text-decoration: none
 
-    .menu
-      float: right
+  ul
+    margin: 0
+    padding: 0
 
-      > li
-        display: inline-block
-        position: relative
+  .menu
+    float: right
 
-        &:hover .submenu
-          visibility: visible
-          top: 0
+    > li
+      display: inline-block
+      position: relative
+      vertical-align: top
 
-        > a
+      &:hover .submenu-mask
+        height: 222px
+
+      &:hover .submenu
+        visibility: visible
+        top: 0
+
+      > a
+        display: block
+        width: 80px
+        height: 30px
+        @include font-size(16)
+        margin: 0 15px
+        padding-top: 15px
+        padding-left: 10px
+
+        &:after
+          content: "\2228"
+          color: $white
           display: block
-          width: 80px
-          height: 30px
-          @include font-size(16)
-          margin: 0 15px
-          padding-top: 15px
-          padding-left: 10px
+          width: 27px
+          height: 45px
+          background-color: $cyan
+          position: absolute
+          top: 0
+          right: 0
+          text-align: center
+          @include font-size(27)
+          @include line-height(40)
 
-          &:after
-            content: "\2228"
-            color: $white
-            display: block
-            width: 27px
-            height: 45px
-            background-color: $cyan
-            position: absolute
-            top: 0
-            right: 0
-            text-align: center
-            @include font-size(27)
-            @include line-height(40)
+  .submenu-mask
+    width: 100%
+    height: 1px
+    position: relative
+    overflow: hidden
 
-    .submenu-mask
+  .submenu
+    @include transition-property(top)
+    @include transition-duration(400ms)
+    visibility: hidden
+    position: absolute
+    top: -222px
+    left: 0
+    width: 120px
+    max-height: 222px
+    overflow-y: auto
+
+    li a
+      @include transition-property(background-color,border)
+      @include transition-duration($default-timer)
+      display: block
       width: 100%
-      height: 222px
+      height: 35px
+      @include font-size(20)
+      @include line-height(35)
+      text-align: center
+      background-color: $cream
+      border-top: 1px solid adjust-lightness($cream, 20)
+      border-bottom: 1px solid shade($cream, 20)
+
+      &:hover
+        background-color: $cyan
+        border-top: 1px solid adjust-lightness($cyan, 20)
+        border-bottom: 1px solid shade($cyan, 20)
+
+  h2
+    float: left
+    @include font-size(16)
+    color: $gray-light
+    padding-top: 15px
+
+  .filter-menu
+    float: left
+
+  .order-menu
+    float: right
+
+#home > .content
+  z-index: 10
+  position: relative
+
+  .card
+    display: block
+    width: 206px
+    height: 215px
+    margin-bottom: 85px
+
+    .back, .front
+      background-color: $cream
+      border-right: 1px solid shade($cream, 10)
+      border-bottom: 2px solid shade($cream, 20)
+
+    .back
+      display: none
+
+    .thumb
       position: relative
       overflow: hidden
+      width: 172px
+      height: 142px
+      border: 2px solid shade($cream, 30)
+      @include box-shadow(adjust-lightness($cream, 8) 2px 2px 1px)
 
-    .submenu
-      @include transition-property(top)
-      @include transition-duration(400ms)
-      visibility: hidden
-      position: absolute
-      top: -222px
-      left: 0
-      width: 120px
-      max-height: 222px
-      overflow-y: auto
+      img
+        opacity: 0.5
+        position: absolute
+        top: 0
+        max-width: 100%
 
-      li a
-        @include transition-property(background-color,border)
-        @include transition-duration($default-timer)
+      &:before
+        content: ""
         display: block
+        background-color: $cyan
+        position: absolute
+        top: 0
         width: 100%
-        height: 35px
-        @include font-size(20)
-        @include line-height(35)
-        text-align: center
-        background-color: $cream
-        border-top: 1px solid adjust-lightness($cream, 20)
-        border-bottom: 1px solid shade($cream, 20)
+        height: 100%
 
-        &:hover
-          background-color: $cyan
-          border-top: 1px solid adjust-lightness($cyan, 20)
-          border-bottom: 1px solid shade($cyan, 20)
+    h3
+      @include font-size(24)
+      margin-top: 10px
 
-    h2
-      float: left
-      @include font-size(16)
-      color: $gray-light
-      padding-top: 15px
+    h4
+      @include font-size(13)
+      @include line-height(18)
 
-    .filter-menu
-      float: left
+    .partido
+      @include font-size(13)
+      margin: 5px
+      display: inline-block
+      vertical-align: top
 
-    .order-menu
-      float: right
+    header
+      padding: 15px
+      padding-bottom: 5px
+      border-bottom: 1px solid shade($cream, 10)
 
-  .content ul
-    display: none
-    @include horizontal-list
+    .badges
+      text-align: center
+      list-style-type: none
+      margin: 0
+      border-top: 1px solid adjust-lightness($cream, 8)
+      border-bottom: 1px solid adjust-lightness($cream, 4)
+      background-color: shade($cream, 5)
+      padding-top: 5px
+      padding-bottom: 1px
+
+      li
+        display: inline-block
+        width: 38px
+        height: 37px
+        margin-right: 15px

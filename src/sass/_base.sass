@@ -17,14 +17,19 @@ $susy: (columns: 12, gutters: 1/4)
 @import "social/*.png"
 @include all-social-sprites
 
+@import "badge/*.png"
+@include all-badge-sprites
+
 
 // Base elements
 // =========
 html
   font-size: 62.5%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
 body
-  color: $gray-medium
+  color: $gray-dark
   font-family: $arista
   @include font-size(16)
   margin: 0
@@ -33,10 +38,16 @@ body
 a
   color: inherit
 
+.clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
 
 // Content
 // =========
 #container
   @include container
   @include breakpoint(large)
-    @include container($large)
+    @include container(960px)
