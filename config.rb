@@ -3,20 +3,22 @@ require 'compass/import-once/activate'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-fonts_dir = "src/fonts"
-css_dir = "src/css"
 sass_dir = "src/sass"
-images_dir = "src/img"
-javascripts_dir = "src/js"
+images_dir = "build/img"
+http_images_dir = "build/img" # NOT WORKING
+fonts_dir = "build/fonts"
+css_dir = "build/css"
+javascripts_dir = "build/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
+output_style = :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-# line_comments = false
+line_comments = false
 
 
 # If you prefer the indented syntax, you might want to regenerate this

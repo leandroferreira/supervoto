@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 var bower = require('bower');
 var bowerSrc = require('gulp-bower-src');
 var concat = require('gulp-concat');
@@ -10,7 +11,7 @@ var del = require('del');
 
 var paths = {
   scripts: ['src/js/**/*.js'],
-  images: 'src/img/*[png,jpg,jpeg,gif,ico]',
+  images: 'src/img/**/*[png,jpg,jpeg,gif,ico]',
   sass: 'src/sass/**/*.sass'
 };
 
@@ -28,44 +29,36 @@ gulp.task('bower-install', function(cb) {
 });
 
 // copy bower scripts to build folder
-gulp.task('bower-copy', ['clean'], function () {
+gulp.task('bower-copy', function () {
     bowerSrc()
       .pipe(gulp.dest('build/js/lib'));
 });
 
 // copy scripts to build folder
-var scripts = function() {
+gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     //.pipe(uglify())
     .pipe(gulp.dest('build/js'));
-};
-gulp.task('scripts', ['clean'], scripts);
-gulp.task('scripts-watch', scripts);
+});
 
 // copy images to build folder
-var images = function() {
+gulp.task('images', function() {
   return gulp.src(paths.images)
     .pipe(imagemin({optimizationLevel: 5}))
     .pipe(gulp.dest('build/img'));
-};
-gulp.task('images', ['clean'], images);
-gulp.task('images-watch', images);
+});
 
 // copy html build to folder
-var html = function() {
+gulp.task('html', function() {
   return gulp.src('src/*.html')
     .pipe(gulp.dest('build'));
-}
-gulp.task('html', ['clean'], html);
-gulp.task('html-watch', html);
+});
 
 // copy fonts to build folder
-var fonts = function() {
+gulp.task('fonts', function() {
   return gulp.src('src/fonts/**/*')
     .pipe(gulp.dest('build/fonts'));
-}
-gulp.task('fonts', ['clean'], fonts);
-gulp.task('fonts-watch', fonts);
+});
 
 // compile compass
 gulp.task('compass', function() {
@@ -79,9 +72,9 @@ gulp.task('compass', function() {
 
 // watch for changes
 gulp.task('watch', function() {
-  gulp.watch('src/*.html', ['html-watch']);
-  gulp.watch(paths.scripts, ['scripts-watch']);
-  gulp.watch(paths.images, ['images-watch']);
+  gulp.watch('src/*.html', ['html']);
+  gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.images, ['images']);
   gulp.watch(paths.sass, ['compass']);
 });
 
@@ -93,7 +86,9 @@ gulp.task('watch', function() {
 gulp.task('install', ['bower-install']);
 
 // do a single build
-gulp.task('build', ['html', 'fonts', 'compass', 'images', 'scripts', 'bower-copy']);
+gulp.task('build', function (cb) {
+  runSequence('clean', ['html', 'fonts', 'scripts'], 'images', 'compass', 'bower-copy', cb);
+});
 
 // defaults to dev mode
 gulp.task('default', ['build', 'watch']);
