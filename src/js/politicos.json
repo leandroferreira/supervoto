@@ -1,0 +1,94 @@
+{
+  "politicos":[
+    {
+      "id":"0",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":10,
+        "processos":-50,
+        "privilegios":20,
+        "assiduidade":90
+      },
+      "forca":100,
+      "imagem": "img/cristovam.jpg"
+    },
+    {
+      "id":"1",
+      "nome":"Cristovam B.",
+      "partido":"PT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":0,
+        "privilegios":100,
+        "assiduidade":-50
+      },
+      "forca":10,
+      "imagem": "img/cristovam.jpg"
+    },
+    {
+      "id":"2",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"AL",
+      "cargo":"deputado",
+      "atributos":{
+        "atuacao":15,
+        "processos":-20,
+        "privilegios":-50,
+        "assiduidade":0
+      },
+      "forca":-10,
+      "imagem": "img/cristovam.jpg"
+    },
+    {
+      "id":"3",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":0,
+        "privilegios":100,
+        "assiduidade":100
+      },
+      "forca":300,
+      "imagem": "img/cristovam.jpg"
+    },
+    {
+      "id":"4",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":0,
+        "processos":-100,
+        "privilegios":-100,
+        "assiduidade":0
+      },
+      "forca":-200,
+      "imagem": "img/cristovam.jpg"
+    },
+    {
+      "id":"5",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":-50,
+        "privilegios":20,
+        "assiduidade":90
+      },
+      "forca":160,
+      "imagem": "img/cristovam.jpg"
+    }
+  ]
+}

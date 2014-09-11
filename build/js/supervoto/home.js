@@ -12,9 +12,8 @@ define(['jquery', 'isotope'], function ($, Isotope) {
         }
       });
 
-      $('.card').on('mousedown', function () {
-        console.log(this)
-        $(this).toggleClass('flipped');
+      $('.card').on('click', '.front, .back', function () {
+        $(this).parent().toggleClass('flipped');
       });
 
       return this;
