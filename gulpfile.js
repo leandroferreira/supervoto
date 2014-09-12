@@ -10,7 +10,7 @@ var compass = require('gulp-compass');
 var del = require('del');
 
 var paths = {
-  scripts: ['src/js/**/*.js'],
+  scripts: ['src/js/**/*.js', 'src/js/**/*.json'],
   images: 'src/img/**/*[png,jpg,jpeg,gif,ico]',
   sass: 'src/sass/**/*.sass'
 };
