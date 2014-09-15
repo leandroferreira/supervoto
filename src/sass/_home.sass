@@ -103,14 +103,16 @@
 #home > .content
   z-index: 10
   position: relative
-  @include perspective(1000)
+
+  .isotope-item
+    @include perspective(1000)
+    @include transition-duration(400ms)
 
   .card
     display: block
     width: 206px
     height: 265px
     margin-bottom: 45px
-    cursor: pointer
     @include transform-style(preserve-3d)
     @include transition-property(transform)
     @include transition-duration(400ms)
@@ -132,6 +134,7 @@
     .front
       z-index: 2
       @include rotateY(0deg)
+      cursor: pointer
 
     .back
       @include rotateY(180deg)
