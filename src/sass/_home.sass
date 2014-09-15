@@ -71,7 +71,7 @@
       overflow-y: auto
 
       li a
-        @include transition-property(background-color,border)
+        @include transition-property(background-color,color,border)
         @include transition-duration($default-timer)
         display: block
         width: 100%
@@ -84,6 +84,7 @@
         border-bottom: 1px solid shade($cream, 20)
 
         &:hover, &.selected
+          color: $white
           background-color: $cyan
           border-top: 1px solid adjust-lightness($cyan, 20)
           border-bottom: 1px solid shade($cyan, 20)
@@ -133,10 +134,10 @@
 
     .front
       z-index: 2
-      @include rotateY(0deg)
+      @include rotateY(180deg)
 
     .back
-      @include rotateY(180deg)
+      @include rotateY(0deg)
 
       header
         padding-top: 12px
@@ -154,6 +155,11 @@
 
     .features
       padding: 15px
+
+      .value
+        text-align: right
+        width: 35px
+        display: inline-block
 
     .thumb
       position: relative
@@ -215,3 +221,35 @@
 
         &:last-child
           margin: 0
+
+    .bar-container
+      display: inline-block
+      width: 135px
+      height: 12px
+      background-color: shade($cream, 10)
+      @include box-shadow(shade($cream, 20) 1px 1px 0px inset, adjust-lightness($cream, 5) 1px 1px 0px)
+      padding: 1px 0 0 0
+
+      .bar
+        display: block
+        position: relative
+        width: 100%
+        height: 100%
+        background: image-url("barra.png") repeat-y
+
+        &:after
+          content: ""
+          width: 100%
+          height: 100%
+          display: block
+          opacity: 0.5
+          background-color: $yellow
+
+        &.bad:after
+          background-color: $red
+
+        &.good:after
+          background-color: $cyan
+
+        &.middle
+          left: 50%

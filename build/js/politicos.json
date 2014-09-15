@@ -54,7 +54,7 @@
       "atributos":{
         "atuacao":100,
         "processos":0,
-        "privilegios":100,
+        "privilegios":30,
         "assiduidade":100
       },
       "forca":300,

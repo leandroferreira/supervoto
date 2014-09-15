@@ -25,19 +25,23 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
       '          <ul class="features">' +
       '              <li>' +
       '                  <h4>atuação</h4>' +
-      '                  <span class="bar"></span><span class="value atuacao">{{atributos.atuacao}}</span>' +
+      '                  <span class="bar-container"><span class="bar {{atributos.atuacao.middleClass}} {{atributos.atuacao.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.atuacao.percent}}%; margin-left: {{atributos.atuacao.margin}};"></span></span>' +
+      '                  <span class="value atuacao">{{atributos.atuacao.value}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>processos</h4>' +
-      '                  <span class="bar"></span><span class="value processos">{{atributos.processos}}</span>' +
+      '                  <span class="bar-container"><span class="bar {{atributos.processos.middleClass}} {{atributos.processos.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.processos.percent}}%; margin-left: {{atributos.processos.margin}};"></span></span>' +
+      '                  <span class="value processos">{{atributos.processos.value}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>privilégios</h4>' +
-      '                  <span class="bar"></span><span class="value privilegios">{{atributos.privilegios}}</span>' +
+      '                  <span class="bar-container"><span class="bar {{atributos.privilegios.middleClass}} {{atributos.privilegios.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.privilegios.percent}}%; margin-left: {{atributos.privilegios.margin}};"></span></span>' +
+      '                  <span class="value privilegios">{{atributos.privilegios.value}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>assiduidade</h4>' +
-      '                  <span class="bar"></span><span class="value assiduidade">{{atributos.assiduidade}}</span>' +
+      '                  <span class="bar-container"><span class="bar {{atributos.assiduidade.middleClass}} {{atributos.assiduidade.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.assiduidade.percent}}%; margin-left: {{atributos.assiduidade.margin}};"></span></span>' +
+      '                  <span class="value assiduidade">{{atributos.assiduidade.value}}</span>' +
       '              </li>' +
       '          </ul>' +
       '      </div>' +
@@ -46,6 +50,7 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
     var _politicosURL = 'js/politicos.json'
     var _isotope;
     var _filters = {};
+    var _atributos;
 
     this.init = function() {
       // menu
@@ -53,10 +58,25 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
       menu.ee.addListener(menu.EVENT_FILTER, _onMenuFilter);
       menu.ee.addListener(menu.EVENT_SORT, _onMenuSort);
 
-      // content
+      _setupAtributos();
       _loadPoliticos();
 
       return this;
+    };
+
+    var _setupAtributos = function() {
+      _atributos = {};
+      var attr;
+      for(var i = 0; i < window.config.atributos.length; i ++) {
+        attr = window.config.atributos[i];
+        _atributos[attr.id] = {
+          name: attr.name,
+          isMiddle: attr.min < 0 && attr.max > 0,
+          isNegative: attr.min < 0 && attr.max === 0,
+          min: attr.min,
+          max: attr.max
+        };
+      }
     };
 
     var _onMenuFilter = function(menu, submenu) {
@@ -94,6 +114,25 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
     };
 
     var _addPolitico = function(data) {
+      // add custom data for atributos
+      var attr;
+      var percent, finalPercent;
+      var ratings = ['bad', 'neutral', 'good'];
+      for(var item in data.atributos) {
+        attr = _atributos[item];
+        percent = 100 * (data.atributos[item] - attr.min) / (attr.max - attr.min);
+        finalPercent = attr.isNegative ? 100 - percent : percent;
+        finalPercent = attr.isMiddle ? finalPercent - 50 : finalPercent;
+        data.atributos[item] = {
+          value: data.atributos[item],
+          middleClass: attr.isMiddle ? 'middle' : '',
+          ratingClass: attr.isNegative ? ratings[0] : ratings[Math.min(Math.floor(percent / 100 * ratings.length), ratings.length - 1)],
+          negativeClass: finalPercent < 0 ? 'negative' : '',
+          margin: attr.isMiddle && finalPercent < 0 ? finalPercent + '%' : 0,
+          percent: Math.abs(finalPercent)
+        };
+      }
+
       $('.isotope').append(Mustache.to_html(_politicoTemplate, data));
     };
 
