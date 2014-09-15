@@ -25,19 +25,19 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
       '          <ul class="features">' +
       '              <li>' +
       '                  <h4>atuação</h4>' +
-      '                  <span class="bar"></span><span class="value">{{atributos.atuacao}}</span>' +
+      '                  <span class="bar"></span><span class="value atuacao">{{atributos.atuacao}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>processos</h4>' +
-      '                  <span class="bar"></span><span class="value">{{atributos.processos}}</span>' +
+      '                  <span class="bar"></span><span class="value processos">{{atributos.processos}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>privilégios</h4>' +
-      '                  <span class="bar"></span><span class="value">{{atributos.privilegios}}</span>' +
+      '                  <span class="bar"></span><span class="value privilegios">{{atributos.privilegios}}</span>' +
       '              </li>' +
       '              <li>' +
       '                  <h4>assiduidade</h4>' +
-      '                  <span class="bar"></span><span class="value">{{atributos.assiduidade}}</span>' +
+      '                  <span class="bar"></span><span class="value assiduidade">{{atributos.assiduidade}}</span>' +
       '              </li>' +
       '          </ul>' +
       '      </div>' +
@@ -51,6 +51,7 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
       // menu
       var menu = new HomeMenu().init();
       menu.ee.addListener(menu.EVENT_FILTER, _onMenuFilter);
+      menu.ee.addListener(menu.EVENT_SORT, _onMenuSort);
 
       // content
       _loadPoliticos();
@@ -75,6 +76,10 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
       _isotope.arrange({filter: filterString});
     };
 
+    var _onMenuSort = function(menu, submenu) {
+      _isotope.arrange({sortBy: submenu});
+    };
+
     var _loadPoliticos = function() {
       // TODO: error handling
       $.getJSON(_politicosURL, function(data) {
@@ -95,11 +100,17 @@ define(['jquery', 'isotope', 'mustache', 'supervoto/home-menu'], function ($, Is
     var _startIsotope = function() {
       _isotope = new Isotope('.isotope', {
         itemSelector: '.isotope-item',
-        transitionDuration: 0.2,
+        transitionDuration: '500ms',
         layoutMode: 'masonry',
         masonry: {
           columnWidth: 206,
           gutter: 45
+        },
+        getSortData: {
+          atuacao: '.atuacao',
+          processos: '.processos',
+          privilegios: '.privilegios',
+          assiduidade: '.assiduidade'
         }
       });
 

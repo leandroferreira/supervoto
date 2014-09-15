@@ -6,6 +6,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     this.ee = new EventEmitter();
     this.EVENT_FILTER = 'MenuFilter';
+    this.EVENT_SORT = 'MenuSort';
 
     this.init = function() {
       // create filters
@@ -76,7 +77,11 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
         menuContainer.attr('data-selected', selectedItem.attr('data-id'));
       }
 
-      thisObj.ee.emitEvent(thisObj.EVENT_FILTER, [menuId, id]);
+      if (menuContainer.parents('nav').hasClass('sort-menu')) {
+        thisObj.ee.emitEvent(thisObj.EVENT_SORT, [menuId, id]);
+      } else {
+        thisObj.ee.emitEvent(thisObj.EVENT_FILTER, [menuId, id]);
+      }
     };
   }
 
