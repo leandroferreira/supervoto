@@ -13,7 +13,7 @@
         "assiduidade":90
       },
       "forca":100,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     },
     {
       "id":"1",
@@ -28,7 +28,7 @@
         "assiduidade":-50
       },
       "forca":10,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     },
     {
       "id":"2",
@@ -43,7 +43,7 @@
         "assiduidade":0
       },
       "forca":-10,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     },
     {
       "id":"3",
@@ -58,7 +58,7 @@
         "assiduidade":100
       },
       "forca":300,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     },
     {
       "id":"4",
@@ -73,7 +73,7 @@
         "assiduidade":0
       },
       "forca":-200,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     },
     {
       "id":"5",
@@ -88,7 +88,7 @@
         "assiduidade":90
       },
       "forca":160,
-      "imagem": "img/cristovam.jpg"
+      "imagem": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
     }
   ]
 }
