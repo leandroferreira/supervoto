@@ -16,6 +16,8 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
 
       _loadPoliticos();
 
+      $('#modal-container .close').click(_closeSelectModal);
+
       return this;
     };
 
@@ -74,36 +76,57 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       } else if (_selectedCards.length === 1) {
         $('.message-bar').addClass('another');
       } else {
-        _onCardsSelected();
+        _openSelectModal();
       }
     };
 
-    var _onCardsSelected = function() {
+    var _openSelectModal = function() {
+      // clear message bar
       $('.message-bar').removeClass('another');
       $('.message-bar').addClass('hidden');
 
-      $('.modal-backdrop, .modal').removeClass('hidden');
-
+      // show modal
+      $('.modal-backdrop, #modal-container').removeClass('hidden');
       $('html, body').css('overflow', 'hidden');
-      var offset = $('.isotope').offset();
-      $('.modal').css('left', offset.left);
-      $('.modal').css('top', offset.top);
 
       var firstCard = _cards[_selectedCards[0]];
       var secondCard = _cards[_selectedCards[1]];
 
-      firstCard.elm.appendTo('.modal .isotope-container');
-      secondCard.elm.appendTo('.modal .isotope-container');
+      // move elements to same position, different parent
+      firstCard.moveToElement($('#modal-container .isotope-container'));
+      secondCard.moveToElement($('#modal-container .isotope-container'));
 
       setTimeout(function() {
+        // show modal items
+        $('.modal-select').children().removeClass('hidden');
+
         firstCard.setMode(firstCard.MODE_SELECTED_FIRST);
         secondCard.setMode(secondCard.MODE_SELECTED_LAST);
-
-        firstCard.elm.css('left', 100);
-        firstCard.elm.css('top', 0);
-        secondCard.elm.css('left', 500);
-        secondCard.elm.css('top', 0);
       }, 1);
+    };
+
+    var _closeSelectModal = function() {
+      var firstCard = _cards[_selectedCards[0]];
+      var secondCard = _cards[_selectedCards[1]];
+      _selectedCards = [];
+
+      $('.message-bar').removeClass('hidden');
+      $('.message-bar').addClass('another');
+
+      $('.modal-backdrop, #modal-container').addClass('hidden');
+      $('.modal-select').children().addClass('hidden');
+
+      $('html, body').css('overflow', 'auto');
+
+      firstCard.setMode(firstCard.MODE_DEFAULT);
+      secondCard.setMode(secondCard.MODE_DEFAULT);
+
+      firstCard.flip();
+
+      setTimeout(function() {
+        firstCard.moveBackToElement($('.isotope'));
+        secondCard.moveBackToElement($('.isotope'));
+      }, 400);
     };
 
     var _startIsotope = function() {

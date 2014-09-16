@@ -1,0 +1,41 @@
+.modal-select
+  width: 680px
+  height: 520px
+  position: relative
+  left: -50%
+  top: -220px
+
+  > h3
+    @include transition-duration(400ms)
+    @include transition-property(visibility,opacity)
+    text-align: center
+    @include font-size(24)
+    font-family: $arcade-inter
+    color: $gray-dark
+    background-color: $yellow
+    padding: 30px 0
+    @include text-shadow($cyan 1px 1px)
+    @include box-shadow(shade($yellow, 20) 4px 4px, shade($yellow, 20) 3px 3px, shade($yellow, 20) 2px 2px, shade($yellow, 20) 1px 1px)
+
+  > .close
+    @include transition-duration(400ms)
+    @include transition-property(visibility,opacity)
+    display: block
+    position: absolute
+    top: -40px
+    right: -40px
+    @include font-size(24)
+    font-family: $arcade-inter
+    color: $gray-dark
+    background-color: $cream
+    @include box-shadow(shade($cream, 20) 4px 4px, shade($cream, 20) 3px 3px, shade($cream, 20) 2px 2px, shade($cream, 20) 1px 1px)
+    padding: 9px
+    cursor: pointer
+
+  .isotope-container
+    position: relative
+    top: 30px
+
+    &.hidden
+      opacity: 1 !important
+      visibility: visible

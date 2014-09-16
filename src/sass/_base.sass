@@ -31,6 +31,7 @@ html
 body
   color: $gray-dark
   font-family: $arista
+  text-transform: uppercase
   @include font-size(16)
   margin: 0
   background: #ffffff image-url("bg.png") repeat
@@ -46,7 +47,10 @@ a
 
 .hidden
   visibility: hidden
+  opacity: 0 !important
 
+.immediate
+  @include transition-duration(0ms !important)
 
 // Content
 // =========
@@ -71,8 +75,7 @@ a
   @include line-height(32)
 
 .modal-backdrop
-  @include transition-duration(400ms)
-  @include transition-property(opacity)
+  @include transition(opacity 400ms linear, visibility 0 linear)
   z-index: 200
   position: fixed
   width: 100%
@@ -83,12 +86,15 @@ a
   opacity: 0.7
 
   &.hidden
-    opacity: 0
-    visibility: hidden
+    @include transition(opacity 400ms linear, visibility linear 400ms)
 
-.modal
+#modal-container
+  @include transition(visibility 0 linear)
   z-index: 210
-  position: absolute
+  position: fixed
+  top: 50%
+  left: 50%
 
   &.hidden
-    visibility: hidden
+    opacity: 1 !important
+    @include transition(visibility linear 400ms)

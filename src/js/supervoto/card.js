@@ -6,9 +6,13 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     this.MODE_SELECTED_FIRST = 'selectedFirst';
     this.MODE_SELECTED_LAST = 'selectedLast';
+    this.MODE_DEFAULT = 'default';
 
     this.elm;
     this.ee = new EventEmitter();
+
+    var _isSelected = false;
+    var _originalPosition;
 
     var _template = '' +
       '<li class="isotope-item {{estado}} {{partido}} {{cargo}}">' +
@@ -65,7 +69,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       this.elm = $(_draw(data));
 
       // card flip
-      this.elm.on('click', '.front, .back', _onCardFlip);
+      this.elm.on('click', '.front, .back', _onPressCard);
 
       return this;
     };
@@ -73,14 +77,46 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     this.setMode = function(mode) {
       switch (mode) {
         case this.MODE_SELECTED_FIRST:
-          this.elm.addClass('selected');
+          this.elm.addClass('selected first');
+          _isSelected = true;
         break;
         case this.MODE_SELECTED_LAST:
-          this.elm.addClass('selected');
+          this.elm.addClass('selected last');
           $('.card', this.elm).removeClass('flipped');
+          _isSelected = true;
+        break;
+        case this.MODE_DEFAULT:
+          this.elm.removeClass('selected first last');
+          _isSelected = false;
         break;
       }
-    }
+    };
+
+    this.moveToElement = function(parent) {
+      var parentOffset = parent.offset();
+      var offset = this.elm.offset();
+
+      _originalPosition = {
+        left: this.elm.css('left'),
+        top: this.elm.css('top')
+      };
+
+      this.elm.css('left', offset.left - parentOffset.left);
+      this.elm.css('top', offset.top - parentOffset.top);
+
+      this.elm.appendTo(parent);
+    };
+
+    this.moveBackToElement = function(parent) {
+      this.elm.css('left', _originalPosition.left);
+      this.elm.css('top', _originalPosition.top);
+
+      this.elm.appendTo(parent);
+    };
+
+    this.flip = function() {
+      _flipCard();
+    };
 
     var _setupAtributos = function() {
       Card._atributos = {};
@@ -120,8 +156,12 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       return Mustache.to_html(_template, data);
     };
 
-    var _onCardFlip = function(event) {
-      var card = $(event.currentTarget).parent();
+    var _onPressCard = function() {
+      if (!_isSelected) _flipCard();
+    };
+
+    var _flipCard = function() {
+      var card = $('.card', thisObj.elm);
       var id = card.attr('data-id');
 
       card.toggleClass('flipped');
