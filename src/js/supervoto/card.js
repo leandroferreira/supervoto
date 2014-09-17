@@ -24,7 +24,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '  <div class="card" data-id="{{id}}">' +
       '      <div class="front">' +
       '          <header>' +
-      '              <div class="thumb"><img src="{{imagem}}" alt="{{nome}}" /></div>' +
+      '              <div class="thumb"><img src="{{fotos}}" alt="{{nome}}" /></div>' +
       '              <h3>{{nome}} <span class="partido">{{partido}}</span></h3>' +
       '              <h4>{{cargo}} / {{estado}}</h4>' +
       '          </header>' +
@@ -71,6 +71,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       }
 
       this.data = data;
+      this.data.cargo = this.data.cargo.toLowerCase();
       this.elm = $(_draw(data));
 
       _card = $('.card', this.elm);

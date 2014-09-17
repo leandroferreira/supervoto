@@ -214,16 +214,24 @@
   h3
     @include font-size(24)
     margin-top: 10px
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
 
   h4
     @include font-size(13)
     @include line-height(18)
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
 
   .partido
     @include font-size(13)
     margin: 5px
     display: inline-block
     vertical-align: top
+    max-width: 30px
+    overflow: hidden
 
   header
     padding: 15px

@@ -1,0 +1,94 @@
+{
+  "politicos":[
+    {
+      "id":"0",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":10,
+        "processos":-50,
+        "privilegios":20,
+        "assiduidade":90
+      },
+      "forca":100,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    },
+    {
+      "id":"1",
+      "nome":"Cristovam B.",
+      "partido":"PT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":0,
+        "privilegios":100,
+        "assiduidade":-50
+      },
+      "forca":10,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    },
+    {
+      "id":"2",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"AL",
+      "cargo":"deputado",
+      "atributos":{
+        "atuacao":15,
+        "processos":-20,
+        "privilegios":-50,
+        "assiduidade":0
+      },
+      "forca":-10,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    },
+    {
+      "id":"3",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":0,
+        "privilegios":30,
+        "assiduidade":100
+      },
+      "forca":300,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    },
+    {
+      "id":"4",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":0,
+        "processos":-100,
+        "privilegios":-100,
+        "assiduidade":0
+      },
+      "forca":-200,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    },
+    {
+      "id":"5",
+      "nome":"Cristovam B.",
+      "partido":"PDT",
+      "estado":"DF",
+      "cargo":"senador",
+      "atributos":{
+        "atuacao":100,
+        "processos":-50,
+        "privilegios":20,
+        "assiduidade":90
+      },
+      "forca":160,
+      "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/796/large/Jean_Wyllys_(PSOL-RJ).jpg"
+    }
+  ]
+}

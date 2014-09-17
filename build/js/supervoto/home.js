@@ -47,7 +47,7 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       $.getJSON(_politicosURL, function(data) {
         var politico;
 
-        for(var i = 0; i < data.politicos.length; i ++) {
+        for(var i = 0; i < data.politicos.length && i < 4*5; i ++) {
           _addPolitico(data.politicos[i]);
         }
 
