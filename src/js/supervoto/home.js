@@ -58,6 +58,7 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
     var _addPolitico = function(data) {
       var card = new Card().init(data);
       card.ee.addListener(card.EVENT_FLIPPED, _onCardFlip);
+      card.ee.addListener(card.EVENT_SELECT_FEATURE, _onFeatureSelected);
       $('.isotope').append(card.elm);
       _cards[data.id] = card;
     };
@@ -78,6 +79,28 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       } else {
         _openSelectModal();
       }
+    };
+
+    var _onFeatureSelected = function(id, feature) {
+      var firstCard = _cards[_selectedCards[0]];
+      var secondCard = _cards[_selectedCards[1]];
+
+      secondCard.flip();
+
+      firstCard.selectFeature(feature);
+      firstCard.setMode(firstCard.MODE_FINAL);
+      secondCard.selectFeature(feature);
+      secondCard.setMode(secondCard.MODE_FINAL);
+
+      var winner;
+      if(firstCard.data.atributos[feature].value > secondCard.data.atributos[feature].value) {
+        winner = firstCard;
+      } else if (firstCard.data.atributos[feature].value < secondCard.data.atributos[feature].value) {
+        winner = secondCard;
+      }
+      // TODO: tie
+      winner.setWinner();
+      $('.modal-select>h3').text(winner.data.nome + ' WINS!!!');
     };
 
     var _openSelectModal = function() {
@@ -121,7 +144,8 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       firstCard.setMode(firstCard.MODE_DEFAULT);
       secondCard.setMode(secondCard.MODE_DEFAULT);
 
-      firstCard.flip();
+      firstCard.unflip();
+      secondCard.unflip();
 
       setTimeout(function() {
         firstCard.moveBackToElement($('.isotope'));

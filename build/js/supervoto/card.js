@@ -3,16 +3,21 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     var thisObj = this;
 
     this.EVENT_FLIPPED = 'cardFlipped';
+    this.EVENT_SELECT_FEATURE = 'selectedFeature';
 
     this.MODE_SELECTED_FIRST = 'selectedFirst';
     this.MODE_SELECTED_LAST = 'selectedLast';
     this.MODE_DEFAULT = 'default';
+    this.MODE_FINAL = 'final';
 
     this.elm;
     this.ee = new EventEmitter();
 
     var _isSelected = false;
+    var _isFinalized = false;
     var _originalPosition;
+
+    var _card, _id;
 
     var _template = '' +
       '<li class="isotope-item {{estado}} {{partido}} {{cargo}}">' +
@@ -35,22 +40,22 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '              <li class="badge-badge1"></li>' +
       '          </ul>' +
       '          <ul class="features">' +
-      '              <li>' +
+      '              <li data-id="atuacao">' +
       '                  <h4>atuação</h4>' +
       '                  <span class="bar-container"><span class="bar {{atributos.atuacao.middleClass}} {{atributos.atuacao.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.atuacao.percent}}%; margin-left: {{atributos.atuacao.margin}};"></span></span>' +
       '                  <span class="value atuacao">{{atributos.atuacao.value}}</span>' +
       '              </li>' +
-      '              <li>' +
+      '              <li data-id="processos">' +
       '                  <h4>processos</h4>' +
       '                  <span class="bar-container"><span class="bar {{atributos.processos.middleClass}} {{atributos.processos.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.processos.percent}}%; margin-left: {{atributos.processos.margin}};"></span></span>' +
       '                  <span class="value processos">{{atributos.processos.value}}</span>' +
       '              </li>' +
-      '              <li>' +
+      '              <li data-id="privilegios">' +
       '                  <h4>privilégios</h4>' +
       '                  <span class="bar-container"><span class="bar {{atributos.privilegios.middleClass}} {{atributos.privilegios.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.privilegios.percent}}%; margin-left: {{atributos.privilegios.margin}};"></span></span>' +
       '                  <span class="value privilegios">{{atributos.privilegios.value}}</span>' +
       '              </li>' +
-      '              <li>' +
+      '              <li data-id="assiduidade">' +
       '                  <h4>assiduidade</h4>' +
       '                  <span class="bar-container"><span class="bar {{atributos.assiduidade.middleClass}} {{atributos.assiduidade.ratingClass}} {{atributos.atuacao.negativeClass}}" style="width: {{atributos.assiduidade.percent}}%; margin-left: {{atributos.assiduidade.margin}};"></span></span>' +
       '                  <span class="value assiduidade">{{atributos.assiduidade.value}}</span>' +
@@ -68,8 +73,14 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       this.data = data;
       this.elm = $(_draw(data));
 
+      _card = $('.card', this.elm);
+      _id = _card.attr('data-id');
+
       // card flip
       this.elm.on('click', '.front, .back', _onPressCard);
+
+      // feature select
+      this.elm.on('click', '.features li', _onPressFeature);
 
       return this;
     };
@@ -82,12 +93,19 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
         break;
         case this.MODE_SELECTED_LAST:
           this.elm.addClass('selected last');
-          $('.card', this.elm).removeClass('flipped');
+          $('.card', this.elm).addClass('immediate');
+          $('.card', thisObj.elm).removeClass('flipped');
+          setTimeout(function() {
+            $('.card', thisObj.elm).removeClass('immediate');
+          }, 1);
           _isSelected = true;
         break;
         case this.MODE_DEFAULT:
-          this.elm.removeClass('selected first last');
+          this.elm.removeClass('selected first last final');
+          _card.removeClass('winner');
           _isSelected = false;
+        case this.MODE_FINAL:
+          this.elm.addClass('final');
         break;
       }
     };
@@ -116,6 +134,18 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     this.flip = function() {
       _flipCard();
+    };
+
+    this.unflip = function() {
+      _card.removeClass('flipped');
+    };
+
+    this.selectFeature = function(feature) {
+      $('li[data-id="' + feature + '"]', this.elm).addClass('selected');
+    };
+
+    this.setWinner = function() {
+      _card.addClass('winner');
     };
 
     var _setupAtributos = function() {
@@ -157,15 +187,21 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     };
 
     var _onPressCard = function() {
-      if (!_isSelected) _flipCard();
+      if (!_isSelected) {
+        _flipCard();
+        thisObj.ee.emitEvent(thisObj.EVENT_FLIPPED, [_id, !_card.hasClass('flipped')]);
+      }
+    };
+
+    var _onPressFeature = function(event) {
+      if (_isSelected) {
+        var feature = $(event.currentTarget);
+        thisObj.ee.emitEvent(thisObj.EVENT_SELECT_FEATURE, [_id, feature.attr('data-id')]);
+      }
     };
 
     var _flipCard = function() {
-      var card = $('.card', thisObj.elm);
-      var id = card.attr('data-id');
-
-      card.toggleClass('flipped');
-      thisObj.ee.emitEvent(thisObj.EVENT_FLIPPED, [id, !card.hasClass('flipped')]);
+      _card.toggleClass('flipped');
     };
   };
   return Card;

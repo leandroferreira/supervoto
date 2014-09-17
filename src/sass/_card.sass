@@ -15,14 +15,22 @@
   &.selected
     z-index: 100
 
+    &.final .features li
+      cursor: default
+
+      &:hover:not(.selected)
+        background: transparent
+        border-color: transparent
+
     .card
       width: 309px
       height: 398px
-      @include transition-duration(400ms)
-      @include transition-property(width,height)
 
-      &:hover
+      &:hover:not(.winner)
         @include animation(none)
+
+      &.winner
+        @include animation(yellow-blink .15s step-end infinite alternate)
 
     .back, .front
       @include transition-duration(400ms)
@@ -95,8 +103,19 @@
 
       li
         @include transition-duration(400ms)
-        @include transition-property(margin)
-        margin-bottom: 10px
+        @include transition-property(margin,padding)
+        width: 287px
+        margin-left: -17px
+        padding-left: 20px
+        padding-bottom: 10px
+        cursor: pointer
+        border-right: 3px solid transparent
+        border-bottom: 2px solid transparent
+
+        &:hover, &.selected
+          background-color: $yellow
+          border-right: 3px solid shade($yellow, 20)
+          border-bottom: 2px solid shade($yellow, 20)
 
       .value
         @include transition-duration(400ms)
