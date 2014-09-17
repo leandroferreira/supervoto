@@ -4,12 +4,15 @@ require.config({
   paths: {
     supervoto: '../supervoto',
     jquery: '//code.jquery.com/jquery-2.1.1.min',
-    isotope: 'isotope/dist/isotope.pkgd.min',
+    isotope: 'isotope/dist/isotope.pkgd',
+    'cells-by-row': 'isotope-cells-by-row/cells-by-row',
     mustache: 'mustache/mustache',
-    EventEmitter: 'eventEmitter/EventEmitter.min'
+    EventEmitter: 'eventEmitter/EventEmitter.min',
+    unveil: 'unveil/jquery.unveil.min'
   },
   shim: {
-    jquery: {exports: '$'}
+    jquery: {exports: '$'},
+    unveil: ['jquery']
   },
 });
 

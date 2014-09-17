@@ -1,12 +1,27 @@
-define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function ($, Isotope, HomeMenu, Card) {
+define([
+  'jquery',
+  'isotope',
+  'supervoto/home-menu',
+  'supervoto/card',
+  'cells-by-row',
+  'unveil'
+], function (
+  $,
+  Isotope,
+  HomeMenu,
+  Card
+) {
   var Home = function Home() {
     var thisObj = this;
 
     var _politicosURL = 'js/politicos.json'
     var _isotope;
+    var _isotopeElements;
     var _filters = {};
     var _cards = {};
     var _selectedCards = [];
+    var _perPage = 4;
+    var _page = 1;
 
     this.init = function() {
       // menu
@@ -36,10 +51,12 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       if (filterString === '') filterString = '*';
 
       _isotope.arrange({filter: filterString});
+      _refreshVisibleItems();
     };
 
     var _onMenuSort = function(menu, submenu) {
       _isotope.arrange({sortBy: submenu});
+      _refreshVisibleItems();
     };
 
     var _loadPoliticos = function() {
@@ -47,16 +64,17 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       $.getJSON(_politicosURL, function(data) {
         var politico;
 
-        for(var i = 0; i < data.politicos.length && i < 4*5; i ++) {
-          _addPolitico(data.politicos[i]);
+        for(var i = 0; i < data.politicos.length; i ++) {
+          _addPolitico(data.politicos[i], i < _page * _perPage);
         }
 
         _startIsotope();
       });
     };
 
-    var _addPolitico = function(data) {
+    var _addPolitico = function(data, isVisible) {
       var card = new Card().init(data);
+      if (!isVisible) card.hide();
       card.ee.addListener(card.EVENT_FLIPPED, _onCardFlip);
       card.ee.addListener(card.EVENT_SELECT_FEATURE, _onFeatureSelected);
       $('.isotope').append(card.elm);
@@ -133,19 +151,25 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
       var secondCard = _cards[_selectedCards[1]];
       _selectedCards = [];
 
+      // show message bar
       $('.message-bar').removeClass('hidden');
       $('.message-bar').addClass('another');
 
+      // hide modal
       $('.modal-backdrop, #modal-container').addClass('hidden');
       $('.modal-select').children().addClass('hidden');
 
       $('html, body').css('overflow', 'auto');
 
+      // reset cards
       firstCard.setMode(firstCard.MODE_DEFAULT);
       secondCard.setMode(secondCard.MODE_DEFAULT);
 
       firstCard.unflip();
       secondCard.unflip();
+
+      // reset title
+      $('.modal-select>h3').text('Selecione um item e compare');
 
       setTimeout(function() {
         firstCard.moveBackToElement($('.isotope'));
@@ -156,7 +180,8 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
     var _startIsotope = function() {
       _isotope = new Isotope('.isotope', {
         itemSelector: '.isotope-item',
-        transitionDuration: '500ms',
+        transitionDuration: '0',
+        isResizeBound: false,
         layoutMode: 'masonry',
         masonry: {
           columnWidth: 206,
@@ -169,6 +194,25 @@ define(['jquery', 'isotope', 'supervoto/home-menu', 'supervoto/card'], function 
           assiduidade: '.assiduidade'
         }
       });
+
+      _isotopeElements = _isotope.getItemElements();
+      for(var i = 0; i < _isotopeElements.length; i ++) {
+        _isotopeElements[i] = _isotope.getItem(_isotopeElements[i]);
+      }
+
+      // $("img").unveil();
+    };
+
+    var _refreshVisibleItems = function() {
+      var items = _isotope.filteredItems.slice(_page * _perPage);
+      var l = items.length;
+      var item;
+      for(var i = 0; i < l; i ++) {
+        item = items[i];
+        if (!item.isHidden) item.hide();
+      }
+
+      // $('.isotope-item').slice(_page * _perPage).hide();
     };
   };
   return Home;
