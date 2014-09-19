@@ -77,13 +77,12 @@
       @include transition-duration(400ms)
       @include transition-property(padding)
       padding: 22px
-      padding-bottom: 15px
+      padding-bottom: 8px
 
     .partido
       @include transition-duration(400ms)
       @include transition-property(font-size,margin)
       @include font-size(20)
-      margin: 5px
 
     .thumb
       @include transition-duration(400ms)
@@ -216,9 +215,12 @@
   h3
     @include font-size(24)
     margin-top: 10px
-    text-overflow: ellipsis
-    overflow: hidden
-    white-space: nowrap
+
+    span
+      text-overflow: ellipsis
+      white-space: nowrap
+      display: inline-block
+      overflow: hidden
 
   h4
     @include font-size(13)
@@ -227,13 +229,15 @@
     overflow: hidden
     white-space: nowrap
 
+  .nome
+    width: 75%
+
   .partido
     @include font-size(13)
-    margin: 5px
-    display: inline-block
+    margin: 5px 0
+    text-align: right
     vertical-align: top
-    max-width: 30px
-    overflow: hidden
+    width: 20%
 
   header
     padding: 15px

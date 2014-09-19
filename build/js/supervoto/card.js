@@ -25,7 +25,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '      <div class="front">' +
       '          <header>' +
       '              <div class="thumb"><img src="" data-src="{{fotos}}" alt="{{nome}}" /></div>' +
-      '              <h3>{{nome}} <span class="partido">{{partido}}</span></h3>' +
+      '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '              <h4>{{cargo}} / {{estado}}</h4>' +
       '          </header>' +
       '          <ul class="badges">' +
@@ -34,7 +34,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '      </div>' +
       '      <div class="back">' +
       '          <header>' +
-      '              <h3>{{nome}} <span class="partido">{{partido}}</span></h3>' +
+      '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '          </header>' +
       '          <ul class="badges">' +
       '              <li class="badge-badge1"></li>' +
