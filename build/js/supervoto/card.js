@@ -65,36 +65,6 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '  </div>' +
       '</li>';
 
-      var _estados = {
-        'Acre': 'AC',
-        'Alagoas': 'AL',
-        'Amazonas': 'AM',
-        'Amapá': 'AP',
-        'Bahia': 'BA',
-        'Ceará': 'CE',
-        'Distrito Federal': 'DF',
-        'Espirito Santo': 'ES',
-        'Goiás': 'GO',
-        'Maranhão': 'MA',
-        'Minas Gerais': 'MG',
-        'Mato Grosso do Sul': 'MS',
-        'Mato Grosso': 'MT',
-        'Pará': 'PA',
-        'Paraíba': 'PB',
-        'Pernambuco': 'PE',
-        'Piauí': 'PI',
-        'Paraná': 'PR',
-        'Rio de Janeiro': 'RJ',
-        'Rio Grande do Norte': 'RN',
-        'Rondônia': 'RO',
-        'Roraima': 'RR',
-        'Rio Grande do Sul': 'RS',
-        'Santa Catarina': 'SC',
-        'Sergipe': 'SE',
-        'São Paulo': 'SP',
-        'Tocantins': 'TO'
-      };
-
     this.init = function(data) {
       if (!Card._atributos) {
         _setupAtributos();
@@ -102,8 +72,6 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
       this.data = data;
       this.data.cargo = this.data.cargo.toLowerCase();
-      this.data.partido = this.data.partido.split(' - ')[0];
-      this.data.estado = _estados[this.data.estado];
       this.elm = $(_draw(data));
 
       _card = $('.card', this.elm);
