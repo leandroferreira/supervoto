@@ -1,8 +1,11 @@
-.isotope-item
+.card-item
   @include perspective(1000)
   @include transition-duration(400ms)
-  @include transition-property(transform,left,top)
+  @include transition-property(transform,opacity,left,top)
   z-index: 1
+  position: absolute
+  left: 0
+  top: 0
 
   &.first
     left: 0 !important
@@ -133,7 +136,6 @@
   display: block
   width: 206px
   height: 265px
-  margin-bottom: 45px
   border: 10px solid transparent
   @include transform-style(preserve-3d)
   @include transition-property(transform,width,height)

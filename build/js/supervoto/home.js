@@ -1,27 +1,14 @@
-define([
-  'jquery',
-  'isotope',
-  'supervoto/home-menu',
-  'supervoto/card',
-  'cells-by-row',
-  'unveil'
-], function (
-  $,
-  Isotope,
-  HomeMenu,
-  Card
-) {
+define(
+  ['jquery', 'supervoto/home-menu', 'supervoto/card-container', 'supervoto/card'],
+  function ($, HomeMenu, CardContainer, Card) {
   var Home = function Home() {
     var thisObj = this;
 
     var _politicosURL = 'js/politicos.json'
-    var _isotope;
-    var _isotopeElements;
+    var _container;
     var _filters = {};
     var _cards = {};
     var _selectedCards = [];
-    var _perPage = 4;
-    var _page = 1;
 
     this.init = function() {
       // menu
@@ -29,6 +16,7 @@ define([
       menu.ee.addListener(menu.EVENT_FILTER, _onMenuFilter);
       menu.ee.addListener(menu.EVENT_SORT, _onMenuSort);
 
+      _container = new CardContainer().init($('.card-container'), '.card-item', 18);
       _loadPoliticos();
 
       $('#modal-container .close').click(_closeSelectModal);
@@ -47,16 +35,11 @@ define([
         }
       }
 
-      // select all
-      if (filterString === '') filterString = '*';
-
-      _isotope.arrange({filter: filterString});
-      _refreshVisibleItems();
+      _container.filter(filterString);
     };
 
     var _onMenuSort = function(menu, submenu) {
-      _isotope.arrange({sortBy: submenu});
-      _refreshVisibleItems();
+      _container.sortOn(submenu);
     };
 
     var _loadPoliticos = function() {
@@ -65,20 +48,19 @@ define([
         var politico;
 
         for(var i = 0; i < data.politicos.length; i ++) {
-          _addPolitico(data.politicos[i], i < _page * _perPage);
+          _addPolitico(data.politicos[i]);
         }
 
-        _startIsotope();
+        _container.render();
       });
     };
 
     var _addPolitico = function(data, isVisible) {
       var card = new Card().init(data);
-      if (!isVisible) card.hide();
       card.ee.addListener(card.EVENT_FLIPPED, _onCardFlip);
       card.ee.addListener(card.EVENT_SELECT_FEATURE, _onFeatureSelected);
-      $('.isotope').append(card.elm);
       _cards[data.id] = card;
+      _container.addItem(card.elm);
     };
 
     var _onCardFlip = function(id, selected) {
@@ -99,28 +81,6 @@ define([
       }
     };
 
-    var _onFeatureSelected = function(id, feature) {
-      var firstCard = _cards[_selectedCards[0]];
-      var secondCard = _cards[_selectedCards[1]];
-
-      secondCard.flip();
-
-      firstCard.selectFeature(feature);
-      firstCard.setMode(firstCard.MODE_FINAL);
-      secondCard.selectFeature(feature);
-      secondCard.setMode(secondCard.MODE_FINAL);
-
-      var winner;
-      if(firstCard.data.atributos[feature].value > secondCard.data.atributos[feature].value) {
-        winner = firstCard;
-      } else if (firstCard.data.atributos[feature].value < secondCard.data.atributos[feature].value) {
-        winner = secondCard;
-      }
-      // TODO: tie
-      winner.setWinner();
-      $('.modal-select>h3').text(winner.data.nome + ' WINS!!!');
-    };
-
     var _openSelectModal = function() {
       // clear message bar
       $('.message-bar').removeClass('another');
@@ -134,8 +94,8 @@ define([
       var secondCard = _cards[_selectedCards[1]];
 
       // move elements to same position, different parent
-      firstCard.moveToElement($('#modal-container .isotope-container'));
-      secondCard.moveToElement($('#modal-container .isotope-container'));
+      firstCard.moveToElement($('#modal-container .card-container'));
+      secondCard.moveToElement($('#modal-container .card-container'));
 
       setTimeout(function() {
         // show modal items
@@ -172,47 +132,31 @@ define([
       $('.modal-select>h3').text('Selecione um item e compare');
 
       setTimeout(function() {
-        firstCard.moveBackToElement($('.isotope'));
-        secondCard.moveBackToElement($('.isotope'));
+        firstCard.moveBackToElement($('#home .card-container'));
+        secondCard.moveBackToElement($('#home .card-container'));
       }, 400);
     };
 
-    var _startIsotope = function() {
-      _isotope = new Isotope('.isotope', {
-        itemSelector: '.isotope-item',
-        transitionDuration: '0',
-        isResizeBound: false,
-        layoutMode: 'masonry',
-        masonry: {
-          columnWidth: 206,
-          gutter: 45
-        },
-        getSortData: {
-          atuacao: '.atuacao',
-          processos: '.processos',
-          privilegios: '.privilegios',
-          assiduidade: '.assiduidade'
-        }
-      });
+    var _onFeatureSelected = function(id, feature) {
+      var firstCard = _cards[_selectedCards[0]];
+      var secondCard = _cards[_selectedCards[1]];
 
-      _isotopeElements = _isotope.getItemElements();
-      for(var i = 0; i < _isotopeElements.length; i ++) {
-        _isotopeElements[i] = _isotope.getItem(_isotopeElements[i]);
+      secondCard.flip();
+
+      firstCard.selectFeature(feature);
+      firstCard.setMode(firstCard.MODE_FINAL);
+      secondCard.selectFeature(feature);
+      secondCard.setMode(secondCard.MODE_FINAL);
+
+      var winner;
+      if(firstCard.data.atributos[feature].value > secondCard.data.atributos[feature].value) {
+        winner = firstCard;
+      } else if (firstCard.data.atributos[feature].value < secondCard.data.atributos[feature].value) {
+        winner = secondCard;
       }
-
-      // $("img").unveil();
-    };
-
-    var _refreshVisibleItems = function() {
-      var items = _isotope.filteredItems.slice(_page * _perPage);
-      var l = items.length;
-      var item;
-      for(var i = 0; i < l; i ++) {
-        item = items[i];
-        if (!item.isHidden) item.hide();
-      }
-
-      // $('.isotope-item').slice(_page * _perPage).hide();
+      // TODO: tie
+      winner.setWinner();
+      $('.modal-select>h3').text(winner.data.nome + ' WINS!!!');
     };
   };
   return Home;

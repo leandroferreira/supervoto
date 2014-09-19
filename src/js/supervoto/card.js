@@ -20,7 +20,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     var _card, _id;
 
     var _template = '' +
-      '<li class="isotope-item {{estado}} {{partido}} {{cargo}}">' +
+      '<li class="card-item {{estado}} {{partido}} {{cargo}}">' +
       '  <div class="card" data-id="{{id}}">' +
       '      <div class="front">' +
       '          <header>' +
