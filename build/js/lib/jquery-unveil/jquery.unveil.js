@@ -31,22 +31,12 @@
     function unveil() {
       var inview = images.filter(function() {
         var $e = $(this);
-        if ($e.is(":hidden")) return;
-
-        var wt = $w.scrollTop(),
-            wb = wt + $w.height(),
-            et = $e.offset().top,
-            eb = et + $e.height();
-
-        return eb >= wt - th && et <= wb + th;
+        return !($e.hasClass(".hidden") || $e.closest(".hidden").length > 0 || $e.is(":hidden"));
       });
 
       loaded = inview.trigger("unveil");
       images = images.not(loaded);
     }
-
-    $w.scroll(unveil);
-    $w.resize(unveil);
 
     unveil();
 

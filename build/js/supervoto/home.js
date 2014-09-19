@@ -16,7 +16,7 @@ define(
       menu.ee.addListener(menu.EVENT_FILTER, _onMenuFilter);
       menu.ee.addListener(menu.EVENT_SORT, _onMenuSort);
 
-      _container = new CardContainer().init($('.card-container'), '.card-item', 18);
+      _container = new CardContainer().init($('#home .card-container'), '.card-item', 18);
       _loadPoliticos();
 
       $('#modal-container .close').click(_closeSelectModal);

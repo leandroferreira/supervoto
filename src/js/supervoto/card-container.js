@@ -1,8 +1,8 @@
-define(['jquery'], function ($) {
+define(['jquery', 'jquery-unveil'], function ($) {
   var CardContainer = function CardContainer() {
     var _container;
     var _childSelector;
-    var _perPage = 4;
+    var _perPage = 4 * 3;
     var _page = 1;
     var _visibleCount = _perPage * _page;
     var _itemWidth;
@@ -19,6 +19,9 @@ define(['jquery'], function ($) {
     };
 
     this.addItem = function(item) {
+      var index = _container.children().length + 1;
+      item.toggleClass('hidden', index > _visibleCount);
+
       _container.append(item);
 
       if (!_itemWidth) {
@@ -26,13 +29,13 @@ define(['jquery'], function ($) {
         _itemHeight = item.outerHeight();
         _numCols = Math.floor((_container.outerWidth() + _gutter) / (_itemWidth + _gutter));
       }
-
-      item.toggleClass('hidden', _container.children().length > _visibleCount);
     };
 
     this.render = function() {
       $(_childSelector + ':not(.hidden)', _container).each(_renderItem);
       _container.css('height', Math.floor(_visibleCount / _numCols) * (_itemHeight + _gutter));
+
+      $('img').unveil();
     };
 
     this.filter = function(filterString) {
