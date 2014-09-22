@@ -112,6 +112,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       }
     };
 
+    // set elements parent and change position so it stays on the same global pos
     this.moveToElement = function(parent) {
       var parentOffset = parent.offset();
       var offset = this.elm.offset();
@@ -127,6 +128,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       this.elm.appendTo(parent);
     };
 
+    // go back to previous element
     this.moveBackToElement = function(parent) {
       this.elm.css('left', _originalPosition.left);
       this.elm.css('top', _originalPosition.top);
@@ -134,10 +136,12 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       this.elm.appendTo(parent);
     };
 
+    // toggle flip
     this.flip = function() {
       _flipCard();
     };
 
+    // force to unflipped
     this.unflip = function() {
       _card.removeClass('flipped');
     };
@@ -146,6 +150,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       $('.features li[data-id="' + feature + '"]', this.elm).addClass('selected');
     };
 
+    // render as winner
     this.setWinner = function() {
       _card.addClass('winner');
     };

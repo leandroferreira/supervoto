@@ -23,6 +23,7 @@ define(['jquery', 'jquery-unveil'], function ($) {
       return this;
     };
 
+    // add jQuery item to container
     this.addItem = function(item) {
       var index = _container.children().length + 1;
       item.toggleClass('hidden', index > _visibleCount);
@@ -36,22 +37,26 @@ define(['jquery', 'jquery-unveil'], function ($) {
       }
     };
 
+    // filter based on jQuery selector
     this.filter = function(filterString) {
       _filterValue = filterString;
       this.render();
     };
 
+    // sort on data-[property] value, DESC
     this.sortOn = function(property) {
       _sortValue = property;
       this.render();
     };
 
+    // add another page of items
     this.nextPage = function() {
       _page ++;
       _visibleCount = _page * _perPage;
       this.render();
     };
 
+    // sets visibility and position
     this.render = function() {
       if (!_sortedItems.default) {
         _sortedItems.default = $(_childSelector, _container);
@@ -85,6 +90,7 @@ define(['jquery', 'jquery-unveil'], function ($) {
       $('img').unveil();
     };
 
+    // get lazy-cached sorted items
     var _getSortedItems = function(property) {
       if (!property || property === '') {
         return _sortedItems.default;
@@ -102,6 +108,7 @@ define(['jquery', 'jquery-unveil'], function ($) {
       }
     };
 
+    // render item position
     var _renderItem = function(index, item) {
       item = $(item);
       var itemIndex = parseInt(item.attr('data-index'));

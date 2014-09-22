@@ -17,14 +17,17 @@ define(
       menu.ee.addListener(menu.EVENT_FILTER, _onMenuFilter);
       menu.ee.addListener(menu.EVENT_SORT, _onMenuSort);
 
+      // container
       _container = new CardContainer().init($('#home .card-container'), '.card-item', 18);
       _loadPoliticos();
 
+      // modal
       $('#modal-container .close').click(_closeSelectModal);
 
       return this;
     };
 
+    // set filter
     var _onMenuFilter = function(menu, submenu) {
       _filters[menu] = submenu;
 
@@ -39,12 +42,13 @@ define(
       _container.filter(filterString);
     };
 
+    // set sort
     var _onMenuSort = function(menu, submenu) {
       _container.sortOn(submenu);
     };
 
+    // load data
     var _loadPoliticos = function() {
-      // TODO: error handling
       $.getJSON(_politicosURL, function(data) {
         var politico;
 
@@ -139,6 +143,7 @@ define(
       }, 400);
     };
 
+    // show winner
     var _onFeatureSelected = function(id, feature) {
       var firstCard = _cards[_selectedCards[0]];
       var secondCard = _cards[_selectedCards[1]];
