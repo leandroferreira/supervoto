@@ -86,7 +86,7 @@ define(['jquery', 'jquery-unveil'], function ($) {
       }
 
       // animate visible items
-      //items = items.filter(':not(.hidden)');
+      items = items.filter(':not(.hidden)');
       items.each(_renderItem);
 
       var visibleItemCount = Math.min(_visibleCount, items.filter(':not(.hidden)').length);
