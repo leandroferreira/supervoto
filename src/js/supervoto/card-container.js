@@ -1,7 +1,9 @@
 define(['jquery', 'jquery-unveil'], function ($) {
   var CardContainer = function CardContainer() {
+    var thisObj = this;
     var _perPage = 4 * 3;
     var _page = 1;
+    var _timeoutScroll;
 
     var _container;
     var _childSelector;
@@ -19,6 +21,8 @@ define(['jquery', 'jquery-unveil'], function ($) {
       _container = container;
       _childSelector = childSelector;
       _gutter = gutter;
+
+      $(document).scroll(_onScroll);
 
       return this;
     };
@@ -82,10 +86,11 @@ define(['jquery', 'jquery-unveil'], function ($) {
       }
 
       // animate visible items
-      items = items.filter(':not(.hidden)');
+      //items = items.filter(':not(.hidden)');
       items.each(_renderItem);
 
-      _container.css('height', Math.floor(_visibleCount / _numCols) * (_itemHeight + _gutter));
+      var visibleItemCount = Math.min(_visibleCount, items.filter(':not(.hidden)').length);
+      _container.css('height', Math.floor(visibleItemCount / _numCols) * (_itemHeight + _gutter));
 
       $('img').unveil();
     };
@@ -114,6 +119,16 @@ define(['jquery', 'jquery-unveil'], function ($) {
       var itemIndex = parseInt(item.attr('data-index'));
       item.css('left', (itemIndex % _numCols) * (_itemWidth + _gutter));
       item.css('top', Math.floor(itemIndex / _numCols) * (_itemHeight + _gutter));
+    };
+
+    // check if we need to go to next page
+    var _onScroll = function(event) {
+      if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        clearTimeout(_timeoutScroll);
+        _timeoutScroll = setTimeout(function () {
+          thisObj.nextPage();
+        }, 500);
+      }
     };
   };
   return CardContainer;
