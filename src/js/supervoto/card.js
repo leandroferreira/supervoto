@@ -20,7 +20,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     var _card, _id;
 
     var _template = '' +
-      '<li class="card-item {{estado}} {{partido}} {{cargo}}">' +
+      '<li class="card-item {{estado}} {{partido}} {{cargo}}" data-index="{{index}}" data-forca="{{forca}}" data-atuacao="{{atributos.atuacao.value}}" data-processos="{{atributos.processos.value}}" data-privilegios="{{atributos.privilegios.value}}" data-assiduidade="{{atributos.assiduidade.value}}">' +
       '  <div class="card" data-id="{{id}}">' +
       '      <div class="front">' +
       '          <header>' +
@@ -65,14 +65,14 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '  </div>' +
       '</li>';
 
-    this.init = function(data) {
+    this.init = function(data, index) {
       if (!Card._atributos) {
         _setupAtributos();
       }
 
       this.data = data;
       this.data.cargo = this.data.cargo.toLowerCase();
-      this.elm = $(_draw(data));
+      this.elm = $(_draw(data, index));
 
       _card = $('.card', this.elm);
       _id = _card.attr('data-id');
@@ -103,6 +103,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
         break;
         case this.MODE_DEFAULT:
           this.elm.removeClass('selected first last final');
+          $('.features li', this.elm).removeClass('selected');
           _card.removeClass('winner');
           _isSelected = false;
         case this.MODE_FINAL:
@@ -142,7 +143,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     };
 
     this.selectFeature = function(feature) {
-      $('li[data-id="' + feature + '"]', this.elm).addClass('selected');
+      $('.features li[data-id="' + feature + '"]', this.elm).addClass('selected');
     };
 
     this.setWinner = function() {
@@ -168,14 +169,16 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       }
     };
 
-    var _draw = function(data) {
+    var _draw = function(data, index) {
       // add custom data for atributos
       var attr;
       var percent, finalPercent;
       var ratings = ['bad', 'neutral', 'good'];
+      data.index = index;
       for(var item in data.atributos) {
         attr = Card._atributos[item];
         percent = 100 * (data.atributos[item] - attr.min) / (attr.max - attr.min);
+        percent = Math.max(Math.min(percent, 100), 0);
         finalPercent = attr.isNegative ? 100 - percent : percent;
         finalPercent = attr.isMiddle ? finalPercent - 50 : finalPercent;
         data.atributos[item] = {

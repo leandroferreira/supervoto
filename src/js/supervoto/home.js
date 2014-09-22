@@ -8,6 +8,7 @@ define(
     var _container;
     var _filters = {};
     var _cards = {};
+    var _cardsLength = 0;
     var _selectedCards = [];
 
     this.init = function() {
@@ -56,11 +57,12 @@ define(
     };
 
     var _addPolitico = function(data, isVisible) {
-      var card = new Card().init(data);
+      var card = new Card().init(data, _cardsLength);
       card.ee.addListener(card.EVENT_FLIPPED, _onCardFlip);
       card.ee.addListener(card.EVENT_SELECT_FEATURE, _onFeatureSelected);
       _cards[data.id] = card;
       _container.addItem(card.elm);
+      _cardsLength ++;
     };
 
     var _onCardFlip = function(id, selected) {
