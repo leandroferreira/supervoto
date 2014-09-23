@@ -85,12 +85,17 @@ define(['jquery', 'jquery-unveil'], function ($) {
         }
       }
 
+      // fix page
+      if (items.length <= _visibleCount) {
+        _page --;
+      }
+
       // animate visible items
       items = items.filter(':not(.hidden)');
       items.each(_renderItem);
 
       var visibleItemCount = Math.min(_visibleCount, items.filter(':not(.hidden)').length);
-      _container.css('height', Math.floor(visibleItemCount / _numCols) * (_itemHeight + _gutter));
+      _container.css('height', Math.ceil(visibleItemCount / _numCols) * (_itemHeight + _gutter));
 
       $('img').unveil();
     };
