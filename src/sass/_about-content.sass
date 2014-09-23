@@ -1,0 +1,121 @@
+body.about
+
+  #head
+    background: #ffffff
+    min-height: 180px
+
+    .top-menu
+      top: 20px
+
+    .arrow
+      @include font-size(21)
+      @include line-height(15)
+      vertical-align: bottom
+
+  > section:not(#sobre)
+
+    &:before
+      content: ""
+      background: image-url("rainbow-bar.png") left center repeat-x
+      width: 100%
+      height: 10px
+      display: block
+
+    .container
+      padding: 60px 0
+
+    h2
+      font-family: $arcade-rounded
+      @include font-size(24)
+      color: $cyan
+      text-align: center
+      position: relative
+      margin-bottom: 30px
+
+      &:before, &:after
+        content: ""
+        display: inline-block
+        width: 35%
+        height: 5px
+        background: $cyan
+        position: absolute
+        top: 8px
+
+      &:before
+        left: 0
+
+      &:after
+        right: 0
+
+  p.big
+    @include font-size(20)
+    @include line-height(30)
+    color: $gray-medium
+    text-transform: initial
+    text-align: center
+    padding: 20px
+    padding-bottom: 50px
+
+#sobre
+  background: #fff7b6
+
+  h1
+    position: relative
+    top: -20px
+    text-align: center
+    @include font-size(38)
+    font-family: $arcade-inter
+    color: $gray-dark
+    @include text-shadow($cyan 1px 1px)
+
+    &:before, &:after
+      content: ""
+      display: inline-block
+      height: 25px
+      background: image-url("rainbow-bar.png") left bottom repeat-x
+      position: absolute
+      top: 0
+
+    &:before
+      left: 0
+      width: 26.8%
+
+    &:after
+      right: 0
+      width: 27%
+
+#criterios
+
+  header
+    min-height: 90px
+
+  h3
+    font-family: $arcade-rounded
+    @include font-size(18)
+    color: $gray-medium
+
+    &:before
+      content: "*"
+      @include font-size(20)
+
+  p
+    font-family: $open-sans, sans-serif
+    @include font-size(16)
+    @include line-height(24)
+    color: $gray-medium
+    text-transform: initial
+
+  .col
+    @include span(4)
+
+    &:last-child
+      @include omega
+
+    &.cyan h3:before
+      color: $cyan
+
+    &.yellow h3:before
+      color: $yellow
+
+    &.red h3:before
+      color: $red

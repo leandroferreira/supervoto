@@ -9,7 +9,7 @@
 
 // Susy config
 // =========
-$susy: (columns: 12, gutters: 1/4)
+$susy: (columns: 12, gutters: 1)
 
 
 // Sprites
@@ -17,8 +17,11 @@ $susy: (columns: 12, gutters: 1/4)
 @import "social/*.png"
 @include all-social-sprites
 
-@import "badge/*.png"
-@include all-badge-sprites
+@import "badges-big/*.png"
+@include all-badges-big-sprites
+
+@import "badges-small/*.png"
+@include all-badges-small-sprites
 
 
 // Base elements
@@ -54,7 +57,7 @@ a
 
 // Content
 // =========
-#container
+.container
   @include container
   @include breakpoint(large)
     @include container(960px)
