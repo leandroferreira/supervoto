@@ -14,3 +14,4 @@ _insumos
 .sass-cache
 bower_components
 node_modules
+.divshot-cache
