@@ -28,17 +28,15 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '              <h4>{{cargo}} / {{estado}}</h4>' +
       '          </header>' +
-      '          <ul class="badges">' +
-      '              <li class="badge-badge1"></li>' +
-      '          </ul>' +
+      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{.}}"></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{.}}"></li>{{/badges}}</ul>' +
       '      </div>' +
       '      <div class="back">' +
       '          <header>' +
       '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '          </header>' +
-      '          <ul class="badges">' +
-      '              <li class="badge-badge1"></li>' +
-      '          </ul>' +
+      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{.}}"></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{.}}"></li>{{/badges}}</ul>' +
       '          <ul class="features">' +
       '              <li data-id="atuacao">' +
       '                  <h4>atuação</h4>' +
