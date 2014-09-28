@@ -28,15 +28,15 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
       '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '              <h4>{{cargo}} / {{estado}}</h4>' +
       '          </header>' +
-      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{.}}"></li>{{/badges}}</ul>' +
-      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{.}}"></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div><</li>{{/badges}}</ul>' +
       '      </div>' +
       '      <div class="back">' +
       '          <header>' +
       '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '          </header>' +
-      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{.}}"></li>{{/badges}}</ul>' +
-      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{.}}"></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div><</li>{{/badges}}</ul>' +
       '          <ul class="features">' +
       '              <li data-id="atuacao">' +
       '                  <h4>atuação</h4>' +
@@ -70,6 +70,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
       this.data = data;
       this.data.cargo = this.data.cargo.toLowerCase();
+      _setupBadges();
       this.elm = $(_draw(data, index));
 
       _card = $('.card', this.elm);
@@ -155,6 +156,17 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     this.hide = function() {
       this.elm.hide();
+    };
+
+    var _setupBadges = function() {
+      var badges = thisObj.data.badges;
+
+      // set badge by index (should be same as id)
+      for(var i = 0; i < badges.length; i ++) {
+        badges[i] = window.config.badges[badges[i] - 1];
+      };
+
+      thisObj.data.badges = badges;
     };
 
     var _setupAtributos = function() {

@@ -135,7 +135,7 @@
     "estado": "RS",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/43/large/Afonso_Hamm_(PP-RS).jpg?1359767681",
-    "badges": 28,
+    "badges": [28],
     "atributos": {
       "atuacao": 6,
       "processos": 0,
@@ -407,7 +407,7 @@
     "estado": "BA",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/732/large/Amauri_Teixeira_(PT-BA).jpg?1359767686",
-    "badges": 1,
+    "badges": [1],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -935,7 +935,7 @@
     "estado": "CE",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/assets/fallback/large_politician_masculino.png",
-    "badges": 25,
+    "badges": [25],
     "atributos": {
       "atuacao": 1,
       "processos": 0,
@@ -1063,7 +1063,7 @@
     "estado": "AL",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/266/large/Benedito-de-Lira%C2%A0.png?1372946452",
-    "badges": 1,
+    "badges": [1],
     "atributos": {
       "atuacao": 4,
       "processos": 0,
@@ -1111,7 +1111,7 @@
     "estado": "RN",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/assets/fallback/large_politician_masculino.png",
-    "badges": 14,
+    "badges": [14],
     "atributos": {
       "atuacao": 5,
       "processos": 0,
@@ -1543,7 +1543,7 @@
     "estado": "PI",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/229/large/Ciro-Nogueira.png?1372947021",
-    "badges": 7,
+    "badges": [7],
     "atributos": {
       "atuacao": 28,
       "processos": 0,
@@ -1639,7 +1639,7 @@
     "estado": "GO",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/936/large/cyro.miranda.png?1399923434",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 9,
       "processos": 0,
@@ -2199,7 +2199,7 @@
     "estado": "AM",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/937/large/Eduardo-Braga.png?1372961820",
-    "badges": 1,
+    "badges": [1],
     "atributos": {
       "atuacao": 7,
       "processos": 0,
@@ -2215,7 +2215,7 @@
     "estado": "RJ",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/135/large/Eduardo_Cunha_(PMDB-RJ).jpg?1359767514",
-    "badges": 24,
+    "badges": [24],
     "atributos": {
       "atuacao": 17,
       "processos": 0,
@@ -3015,7 +3015,7 @@
     "estado": "MT",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/142/large/Geraldo_Resende_(PMDB-MS).jpg?1359767695",
-    "badges": 22,
+    "badges": [22],
     "atributos": {
       "atuacao": 13,
       "processos": 0,
@@ -3255,7 +3255,7 @@
     "estado": "RS",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/338/large/Henrique_Fontana_(PT-RS).jpg?1359767696",
-    "badges": 20,
+    "badges": [20],
     "atributos": {
       "atuacao": 3,
       "processos": 0,
@@ -3399,7 +3399,7 @@
     "estado": "CE",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/101/large/In%C3%A1cio-Arruda.png?1372962556",
-    "badges": 1,
+    "badges": [1],
     "atributos": {
       "atuacao": 33,
       "processos": 0,
@@ -3479,7 +3479,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/26/large/Ivan_Valente_(PSOL-SP).jpg?1359767697",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 5,
       "processos": 0,
@@ -3559,7 +3559,7 @@
     "estado": "RJ",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/424/large/Jair_Bolsonaro_(PP-RJ).jpg?1359767404",
-    "badges": 6,
+    "badges": [6],
     "atributos": {
       "atuacao": 9,
       "processos": -50,
@@ -3575,7 +3575,7 @@
     "estado": "RJ",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/794/large/Jandira_Feghali.jpg?1359767753",
-    "badges": 9,
+    "badges": [9],
     "atributos": {
       "atuacao": 4,
       "processos": 0,
@@ -3639,7 +3639,7 @@
     "estado": "PE",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/169/large/Jarbas-Vasconcelos.png?1372962662",
-    "badges": 1,
+    "badges": [1],
     "atributos": {
       "atuacao": 4,
       "processos": 0,
@@ -3863,7 +3863,7 @@
     "estado": "BA",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/172/large/Jo%C3%A3o-Durval.png?1372962905",
-    "badges": 25,
+    "badges": [25],
     "atributos": {
       "atuacao": 8,
       "processos": 0,
@@ -3975,7 +3975,7 @@
     "estado": "PI",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/171/large/Jo%C3%A3o-Vicente-Claudino.png?1372962934",
-    "badges": 4,
+    "badges": [4],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -4199,7 +4199,7 @@
     "estado": "CE",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/458/large/Jose%CC%81_Guimara%CC%83es.jpg?1359767446",
-    "badges": 24,
+    "badges": [24],
     "atributos": {
       "atuacao": 7,
       "processos": 0,
@@ -4295,7 +4295,7 @@
     "estado": "CE",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/642/large/Jos%C3%A9-Pimentel.png?1372963070",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 14,
       "processos": 0,
@@ -4583,7 +4583,7 @@
     "estado": "",
     "cargo": "Deputada",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/833/large/Lauriete.jpg?1359767457",
-    "badges": 3,
+    "badges": [3],
     "atributos": {
       "atuacao": 8,
       "processos": 0,
@@ -4711,7 +4711,7 @@
     "estado": "BA",
     "cargo": "Senadora",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/507/large/L%C3%ADdice-da-Mata.png?1372963187",
-    "badges": 28,
+    "badges": [28],
     "atributos": {
       "atuacao": 19,
       "processos": -25,
@@ -4791,7 +4791,7 @@
     "estado": "MA",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/177/large/Lob%C3%A3o-Filho.png?1372963295",
-    "badges": 24,
+    "badges": [24],
     "atributos": {
       "atuacao": 9,
       "processos": -100,
@@ -4839,7 +4839,7 @@
     "estado": "RR",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/512/large/Luciano_Castro.jpg?1359767462",
-    "badges": 25,
+    "badges": [25],
     "atributos": {
       "atuacao": 4,
       "processos": 0,
@@ -4983,7 +4983,7 @@
     "estado": "AP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/847/large/Luiz_Carlos_(PSDB-AP).jpg?1359767520",
-    "badges": 28,
+    "badges": [28],
     "atributos": {
       "atuacao": 1,
       "processos": 0,
@@ -5271,7 +5271,7 @@
     "estado": "PI",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/572/large/Marcelo_Castro.jpg?1359767473",
-    "badges": 17,
+    "badges": [17],
     "atributos": {
       "atuacao": 5,
       "processos": -25,
@@ -5479,7 +5479,7 @@
     "estado": "MG",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/838/large/Marcus_Pestana_(PSDB-MG).jpg?1359767409",
-    "badges": 22,
+    "badges": [22],
     "atributos": {
       "atuacao": 1,
       "processos": 0,
@@ -6183,7 +6183,7 @@
     "estado": "PE",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/867/large/Pastor_Eurico_(PSB-PE).jpg?1359767522",
-    "badges": 3,
+    "badges": [3],
     "atributos": {
       "atuacao": 2,
       "processos": 0,
@@ -6199,7 +6199,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/835/large/Pastor_Marco_Feliciano_(PSC-SP).jpg?1359767630",
-    "badges": 3,
+    "badges": [3],
     "atributos": {
       "atuacao": 12,
       "processos": -75,
@@ -6247,7 +6247,7 @@
     "estado": "SC",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/625/large/Paulo-Bauer.png?1372963690",
-    "badges": 24,
+    "badges": [24],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -6407,7 +6407,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/391/large/Paulo_Pereira_da_Silva_(PDT-SP).jpg?1359767525",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 22,
       "processos": 0,
@@ -6599,7 +6599,7 @@
     "estado": "RS",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/596/large/Pepe_Vargas_(PT-RS).jpg?1359767529",
-    "badges": 22,
+    "badges": [22],
     "atributos": {
       "atuacao": 27,
       "processos": 0,
@@ -6647,7 +6647,7 @@
     "estado": "TO",
     "cargo": "Deputada",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/963/large/Professora_Dorinha_Seabra_Rezende.jpg?1359767756",
-    "badges": 13,
+    "badges": [13],
     "atributos": {
       "atuacao": 8,
       "processos": 0,
@@ -6903,7 +6903,7 @@
     "estado": "",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/952/large/Ricardo-Ferra%C3%A7o.png?1372964265",
-    "badges": 21,
+    "badges": [21],
     "atributos": {
       "atuacao": 8,
       "processos": 0,
@@ -6999,7 +6999,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/862/large/Roberto_Freire_(PPS-SP).jpg?1359767541",
-    "badges": 2,
+    "badges": [2],
     "atributos": {
       "atuacao": 3,
       "processos": 0,
@@ -7159,7 +7159,7 @@
     "estado": "SC",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/961/large/Roge%CC%81rio_Peninha_Mendonc%CC%A7a_(PMDB-SC).jpg?1359767542",
-    "badges": 27,
+    "badges": [27],
     "atributos": {
       "atuacao": 8,
       "processos": -50,
@@ -7303,7 +7303,7 @@
     "estado": "PR",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/877/large/Rubens_Bueno_(PPS-PR).jpg?1359767586",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 26,
       "processos": 0,
@@ -7687,7 +7687,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/892/large/Tiririca_(PR-SP).jpg?1359767722",
-    "badges": 8,
+    "badges": [8],
     "atributos": {
       "atuacao": 5,
       "processos": 0,
@@ -7783,7 +7783,7 @@
     "estado": "MT",
     "cargo": "Deputada",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/375/large/Valtenir_Pereira_(PSB-MT).jpg?1359767669",
-    "badges": 22,
+    "badges": [22],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -7879,7 +7879,7 @@
     "estado": "SP",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/603/large/Vicentinho_(PT-SP).jpg?1359767435",
-    "badges": 26,
+    "badges": [26],
     "atributos": {
       "atuacao": 22,
       "processos": 0,
@@ -7895,7 +7895,7 @@
     "estado": "TO",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/379/large/Vicentinho-Alves.png?1372964698",
-    "badges": 13,
+    "badges": [13],
     "atributos": {
       "atuacao": 20,
       "processos": -50,
@@ -7911,7 +7911,7 @@
     "estado": "RS",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/380/large/Vieira_da_Cunha_(PDT-RS).jpg?1359767553",
-    "badges": 20,
+    "badges": [20],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -8023,7 +8023,7 @@
     "estado": "MS",
     "cargo": "Senador",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/480/large/Waldemir-Moka.png?1372964866",
-    "badges": 27,
+    "badges": [27],
     "atributos": {
       "atuacao": 10,
       "processos": 0,
@@ -8279,7 +8279,7 @@
     "estado": "PR",
     "cargo": "Deputado",
     "fotos": "http://d1fpm9b0wfpg7m.cloudfront.net/politicians/avatars/918/large/Zeca_Dirceu_(PT-PR).jpg?1359767680",
-    "badges": 27,
+    "badges": [27],
     "atributos": {
       "atuacao": 1,
       "processos": 0,

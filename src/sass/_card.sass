@@ -6,7 +6,6 @@
   position: absolute
   left: 0
   top: 0
-  overflow: hidden
 
   &.first
     left: 0 !important
@@ -260,6 +259,7 @@
     height: 39px
 
     li
+      position: relative
       display: inline-block
       width: 38px
       height: 38px
@@ -267,6 +267,9 @@
 
       &:last-child
         margin: 0
+
+      &:hover .tooltip
+        display: block
 
     &.badges-big
       padding-top: 8px
@@ -279,6 +282,51 @@
 
     &.hidden
       display: none
+
+  .tooltip
+    position: absolute
+    top: -105px
+    left: -70px
+    background: #f2f2f2
+    width: 175px
+    display: block
+    @include box-shadow($gray-medium 1px 1px 1px)
+    display: none
+
+    &:after, &:before
+      top: 100%
+      left: 50%
+      border: solid transparent
+      content: ""
+      height: 0
+      width: 0
+      position: absolute
+      pointer-events: none
+
+    &:after
+      border-top-color: #f2f2f2
+      border-width: 10px
+      margin-left: -10px
+
+    &:before
+      border-top-color: $gray-medium
+      border-width: 11px
+      margin-left: -11px
+
+    h3
+      @include font-size(15)
+      background: $cyan
+      margin: 0
+      padding: 5px
+      border-bottom: 5px solid shade($cyan, 10)
+
+    p
+      font-family: $open-sans
+      @include font-size(12)
+      text-transform: initial
+      padding: 10px
+      text-align: left
+      border-top: 3px solid adjust-lightness($cyan, 10)
 
   .bar-container
     display: inline-block
