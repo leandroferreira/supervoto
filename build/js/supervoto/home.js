@@ -161,9 +161,13 @@ define(
       } else if (firstCard.data.atributos[feature].value < secondCard.data.atributos[feature].value) {
         winner = secondCard;
       }
-      // TODO: tie
-      winner.setWinner();
-      $('.modal-select>h3').text(winner.data.nome + ' WINS!!!');
+
+      if (winner) {
+        winner.setWinner();
+        $('.modal-select>h3').text(winner.data.nome + ' WINS!!!');
+      } else {
+        $('.modal-select>h3').text('IT\'S A TIE!!!');
+      }
     };
   };
   return Home;
