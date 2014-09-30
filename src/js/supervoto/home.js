@@ -119,7 +119,6 @@ define(
 
       // show message bar
       $('.message-bar').removeClass('hidden');
-      $('.message-bar').addClass('another');
 
       // hide modal
       $('.modal-backdrop, #modal-container').addClass('hidden');
