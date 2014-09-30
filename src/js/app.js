@@ -3,7 +3,8 @@ require.config({
   baseUrl: 'js/lib',
   paths: {
     supervoto: '../supervoto',
-    jquery: '//code.jquery.com/jquery-2.1.1.min',
+    // jquery: '//code.jquery.com/jquery-2.1.1.min',
+    jquery: 'jquery/dist/jquery.min',
     mustache: 'mustache/mustache',
     EventEmitter: 'eventEmitter/EventEmitter.min',
     'jquery-unveil': 'jquery-unveil/jquery.unveil'

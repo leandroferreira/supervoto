@@ -1,4 +1,4 @@
-define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitter) {
+define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, Mustache, EventEmitter, Config) {
   var HomeMenu = function HomeMenu() {
     var thisObj = this;
     var _menuTemplate = '<li class="{{id}}" data-title="{{name}}"><a class="menu-title">{{name}}</a><div class="submenu-mask"><ul class="submenu"></ul></div></li>';
@@ -10,13 +10,13 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     this.init = function() {
       // create filters
-      for(var i = 0; i < window.config.filtros.length; i ++) {
-        _addMenu(window.config.filtros[i], $('.filter-menu .menu'));
+      for(var i = 0; i < Config.filtros.length; i ++) {
+        _addMenu(Config.filtros[i], $('.filter-menu .menu'));
       }
 
       // create sortings
-      for(var i = 0; i < window.config.ordens.length; i ++) {
-        _addMenu(window.config.ordens[i], $('.sort-menu .menu'));
+      for(var i = 0; i < Config.ordens.length; i ++) {
+        _addMenu(Config.ordens[i], $('.sort-menu .menu'));
       }
 
       _startMenu();
@@ -26,7 +26,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
     var _addMenu = function(data, container) {
       // if theres data
-      var items = window.config[data.id];
+      var items = Config[data.id];
       if (items) {
         // create container
         var itemsContainer = $(Mustache.to_html(_menuTemplate, {id:data.id, name:data.name})).appendTo(container);

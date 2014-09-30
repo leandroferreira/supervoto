@@ -12,7 +12,7 @@ O projeto utiliza as seguintes tecnologias:
 * Sass/Compass: framework CSS
 * Susy: grid system que roda em cima do Compass
 
-Todos os fontes do projeto se encontram na pasta src, e são compilados para a pasta build. Ou seja, edite os arquivos **sempre** na pasta /src e publique **apenas** os arquivos da pasta build.
+Todos os fontes do projeto se encontram na pasta src, e são compilados para a pasta dev ou build. Ou seja, edite os arquivos **sempre** na pasta /src e publique **apenas** os arquivos da pasta build. Para desenvolvimento, aponte o browser para a pasta /dev.
 
 ### Instalação
 
@@ -31,3 +31,7 @@ Todos os fontes do projeto se encontram na pasta src, e são compilados para a p
 ### Desenvolvimento
 
 Para desenvolver, deixe o Gulp rodando em modo watch: ``` $ gulp ```
+
+### Produção
+
+Para gerar uma build de produção, rode a rotina: ``` $ gulp build ```

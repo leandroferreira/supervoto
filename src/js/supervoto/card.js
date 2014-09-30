@@ -1,4 +1,4 @@
-define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitter) {
+define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, Mustache, EventEmitter, Config) {
   var Card = function Card() {
     var thisObj = this;
 
@@ -166,7 +166,7 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
 
       // set badge by index (should be same as id)
       for(var i = 0; i < badges.length; i ++) {
-        badges[i] = window.config.badges[badges[i] - 1];
+        badges[i] = Config.badges[badges[i] - 1];
       };
 
       thisObj.data.badges = badges;
@@ -175,8 +175,8 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     var _setupAtributos = function() {
       Card._atributos = {};
       var attr;
-      for(var i = 0; i < window.config.atributos.length; i ++) {
-        attr = window.config.atributos[i];
+      for(var i = 0; i < Config.atributos.length; i ++) {
+        attr = Config.atributos[i];
         Card._atributos[attr.id] = {
           name: attr.name,
           isMiddle: attr.min < 0 && attr.max > 0,
