@@ -162,6 +162,8 @@ define(['jquery', 'mustache', 'EventEmitter'], function ($, Mustache, EventEmitt
     var _setupBadges = function() {
       var badges = thisObj.data.badges;
 
+      if (!isNaN(badges)) badges = thisObj.data.badges = [badges];
+
       // set badge by index (should be same as id)
       for(var i = 0; i < badges.length; i ++) {
         badges[i] = window.config.badges[badges[i] - 1];

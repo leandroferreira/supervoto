@@ -39,12 +39,15 @@ define(
         }
       }
 
+      ga('send', 'event', 'menu', 'filtro', filterString);
+
       _container.filter(filterString);
     };
 
     // set sort
     var _onMenuSort = function(menu, submenu) {
       _container.sortOn(submenu);
+      ga('send', 'event', 'menu', 'sort', submenu);
     };
 
     // load data
@@ -77,6 +80,8 @@ define(
       } else {
         _selectedCards.push(id);
       }
+
+      ga('send', 'event', 'politico', 'selected', _cards[id].data.nome);
 
       if (_selectedCards.length === 0) {
         $('.message-bar').removeClass('another');
@@ -154,12 +159,16 @@ define(
       secondCard.selectFeature(feature);
       secondCard.setMode(secondCard.MODE_FINAL);
 
+      ga('send', 'event', 'atributo', 'selected', firstCard.data.nome + ' | ' + feature);
+
       var winner;
       if(firstCard.data.atributos[feature].value > secondCard.data.atributos[feature].value) {
         winner = firstCard;
       } else if (firstCard.data.atributos[feature].value < secondCard.data.atributos[feature].value) {
         winner = secondCard;
       }
+
+      ga('send', 'event', 'partida', 'resultado', firstCard.data.nome + ' x ' + secondCard.data.nome);
 
       if (winner) {
         winner.setWinner();
