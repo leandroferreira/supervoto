@@ -1,7 +1,7 @@
 Super Voto
 =========
 
-||| colocar descrição |||
+Repositório para o projeto Super Voto: http://www.supervoto.com
 
 Front-end
 ---------
