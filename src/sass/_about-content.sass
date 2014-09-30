@@ -74,6 +74,8 @@ body.about
   background: #fff7b6
 
   h1
+    display: flex
+    flex-flow: row wrap
     position: relative
     top: -20px
     text-align: center
@@ -84,19 +86,13 @@ body.about
 
     &:before, &:after
       content: ""
-      display: inline-block
+      display: block
       height: 25px
       background: image-url("rainbow-bar.png") left bottom repeat-x
-      position: absolute
-      top: 0
+      flex: 1 auto
 
-    &:before
-      left: 0
-      width: 26.8%
-
-    &:after
-      right: 0
-      width: 27%
+    span
+      margin-right: -5px
 
 #criterios
 
