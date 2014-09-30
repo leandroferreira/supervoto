@@ -74,8 +74,9 @@ body.about
   background: #fff7b6
 
   h1
-    display: flex
-    flex-flow: row wrap
+    @include display-flex
+    @include flex-direction(row)
+    @include flex-wrap(wrap)
     position: relative
     top: -20px
     text-align: center
@@ -89,7 +90,7 @@ body.about
       display: block
       height: 25px
       background: image-url("rainbow-bar.png") left bottom repeat-x
-      flex: 1 auto
+      @include flex(1 auto)
 
     span
       margin-right: -5px
