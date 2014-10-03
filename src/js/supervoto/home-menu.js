@@ -2,7 +2,7 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
   var HomeMenu = function HomeMenu() {
     var thisObj = this;
     var _menuTemplate = '<li class="{{id}}" data-title="{{name}}"><a class="menu-title">{{name}}</a><div class="submenu-mask"><ul class="submenu"></ul></div></li>';
-    var _itemTemplate = '<li><a href="#" data-attribute={{attr}} data-id="{{id}}">{{name}}</a></li>';
+    var _itemTemplate = '<li><a href="#" data-attribute={{attr}} data-id="{{id}}" {{#isDefault}}class="selected"{{/isDefault}}>{{name}}</a></li>';
 
     this.ee = new EventEmitter();
     this.EVENT_FILTER = 'MenuFilter';
@@ -34,11 +34,12 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
         var item;
 
         // create submenu items
+        itemsContainer.append(Mustache.to_html(_itemTemplate, {id: null, name: 'Todos', attr: data.id, isDefault: true}));
         for(i = 0; i < items.length; i ++) {
           item = items[i];
           var name = item.name || item;
           var id = item.id || item;
-          itemsContainer.append(Mustache.to_html(_itemTemplate, {id: id, name: name, attr:data.id}));
+          itemsContainer.append(Mustache.to_html(_itemTemplate, {id: id, name: name, attr: data.id}));
         }
       }
     };
@@ -61,10 +62,15 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
 
       // set selected as null if clicked for a second time
       if (id === previousId) {
+        // title = menuContainer.attr('data-title');
+        // selectedItem = null;
+        // id = null;
+        // menuContainer.removeAttr('data-selected');
+        return;
+      }
+
+      if (!id || id === '') {
         title = menuContainer.attr('data-title');
-        selectedItem = null;
-        id = null;
-        menuContainer.removeAttr('data-selected');
       }
 
       // set item title
