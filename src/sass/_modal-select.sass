@@ -32,6 +32,10 @@
     padding: 9px
     cursor: pointer
 
+    &:hover
+      background-color: $yellow
+      @include box-shadow(shade($yellow, 20) 4px 4px, shade($yellow, 20) 3px 3px, shade($yellow, 20) 2px 2px, shade($yellow, 20) 1px 1px)
+
   .card-container
     position: relative
     top: 30px
