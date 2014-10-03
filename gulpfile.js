@@ -29,9 +29,9 @@ gulp.task('set-dev', function(cb) {
   cb();
 });
 
-// clean build folder
+// cleanup folder
 gulp.task('clean', function(cb) {
-  del(['build'], cb);
+  del([paths[ENV]], cb);
 });
 
 // install bower packages
