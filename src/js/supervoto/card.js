@@ -106,8 +106,10 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
           $('.features li', this.elm).removeClass('selected');
           _card.removeClass('winner');
           _isSelected = false;
+          _isFinalized = false;
         case this.MODE_FINAL:
           this.elm.addClass('final');
+          _isFinalized = true;
         break;
       }
     };
@@ -220,7 +222,7 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
     };
 
     var _onPressFeature = function(event) {
-      if (_isSelected) {
+      if (_isSelected && !_isFinalized) {
         var feature = $(event.currentTarget);
         thisObj.ee.emitEvent(thisObj.EVENT_SELECT_FEATURE, [_id, feature.attr('data-id')]);
       }
