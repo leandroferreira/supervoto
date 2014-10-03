@@ -29,14 +29,14 @@ define(['jquery', 'mustache', 'EventEmitter', 'supervoto/config'], function ($, 
       '              <h4>{{cargo}} / {{estado}}</h4>' +
       '          </header>' +
       '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
-      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div><</li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
       '      </div>' +
       '      <div class="back">' +
       '          <header>' +
       '              <h3><span class="nome">{{nome}}</span> <span class="partido">{{partido}}</span></h3>' +
       '          </header>' +
       '          <ul class="badges badges-small">{{#badges}}<li class="badges-small-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
-      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div><</li>{{/badges}}</ul>' +
+      '          <ul class="badges badges-big">{{#badges}}<li class="badges-big-{{id}}"><div class="tooltip"><h3>{{name}}</h3><p>{{desc}}</p></div></li>{{/badges}}</ul>' +
       '          <ul class="features">' +
       '              <li data-id="atuacao">' +
       '                  <h4>atuação</h4>' +
